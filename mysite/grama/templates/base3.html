@@ -1,0 +1,84 @@
+{% load staticfiles %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- <link rel="stylesheet" href="{% static 'css/service.css' %}"> -->
+      <meta charset="utf-8">
+
+  <!-- <meta content="width=device-width, initial-scale=1.0" name="viewport"> -->
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+  <meta content="Admin Dashboard" name="description" />
+  <meta content="ThemeDesign" name="author" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- <link href="{% static 'img/favicon.png' %}" rel="icon"> -->
+  <link href="{% static 'img/favicon.png' %}" rel="icon">
+  <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+
+
+  <!--Morris Chart CSS -->
+  <link rel="stylesheet" href="{% static 'hori/assets/plugins/morris/morris.css' %}">
+
+  <link href="{% static 'hori/assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'hori/assets/css/icons.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'hori/assets/css/style.css' %}" rel="stylesheet" type="text/css">
+  <!-- Favicons -->
+
+          <!-- App Icons -->
+
+          <!--Morris Chart CSS -->
+
+          <!-- App css -->
+
+
+    {% block head %}
+
+    <title>Base3 hori</title>
+    {% endblock %}
+  </head>
+  <body>
+
+
+    <!--==========================
+    Header
+  ============================-->
+
+  <!--==========================-->
+
+
+    {% block body %}
+
+    {% endblock %}
+
+      <!-- jQuery  -->
+      <script src="{% static 'hori/assets/js/jquery.min.js' %}"></script>
+      <script src="{% static 'hori/assets/js/popper.min.js' %}"></script>
+      <script src="{% static 'hori/assets/js/bootstrap.min.js' %}"></script>
+      <script src="{% static 'hori/assets/js/modernizr.min.js' %}"></script>
+      <script src="{% static 'hori/assets/js/waves.js' %}"></script>
+      <script src="{% static 'hori/assets/js/jquery.slimscroll.js' %}"></script>
+      <script src="{% static 'hori/assets/js/jquery.nicescroll.js' %}"></script>
+      <script src="{% static 'hori/assets/js/jquery.scrollTo.min.js' %}"></script>
+
+      <!--Morris Chart-->
+      <script src="{% static 'hori/assets/plugins/morris/morris.min.js' %}"></script>
+      <script src="{% static 'hori/assets/plugins/raphael/raphael-min.js' %}"></script>
+
+      <script src="{% static 'hori/assets/pages/dashborad.js' %}"></script>
+
+      <!-- App js -->
+      <script src="{% static 'hori/assets/js/app.js' %}"></script>
+  </body>
+  <!-- JavaScript Libraries -->
+
+
+</html>

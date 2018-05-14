@@ -1,0 +1,837 @@
+{% extends 'base3.html' %}
+{% load staticfiles %}
+{% load static %}
+{% block head %}
+<title>Profile</title>
+<style type="text/css">
+ .topbar-main,.navbar-custom{
+  background-color: #000!important;
+  height: 92px!important;
+  display: flex;
+  align-items: center;
+}
+.mb-0{
+  margin-top: 20px;
+}
+/* @media only screen and (min-width: 800px) {
+    body {
+        background-color: lightblue;
+    }
+} */
+</style>
+{% endblock %}
+
+
+{% block body %}
+<!-- Model members -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                  <div class="modal-content" style="width:auto!important;">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel" style="text-align:center!important;font-size:22px;">Members</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <label><input type="radio" name="colorRadio" value="pre"> previous members</label>
+                       <label><input type="radio" name="colorRadio" value="cur">current members</label>
+                            <table id="POITable" class="pre table table-striped table-responsive box" cellspacing="1" cellpadding="3" bordercolor="#657383" id="ContentPlaceHolder1_gdDisplay" style="background-color:White;border-color:White;border-width:2px;border-style:Ridge;font-size:9pt;width:100%;">
+                          <tr align="left" style="color:#E7E7FF;background-color:#4A3C8C;font-weight:bold;">
+                      	<th scope="col">ಹೆಸರು</th><th scope="col">ವಾರ್ಡ್ ಹೆಸರು</th><th scope="col">ಲಿಂಗ</th><th scope="col">ಸದಸ್ಯರು</th><th scope="col">ಪದನಾಮ</th><th scope="col">ಸದಸ್ಯತ್ವ ಆರಂಭ ದಿನಾಂಕ</th><th scope="col">ಮೊಬೈಲ್ ಸಂಖ್ಯೆ</th>
+                  	</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+                      <td>ಬೀಫಾತಿಮ</td><td>3 ಮಲಾರ್</td><td>ಮಹಿಳೆರು</td><td>Others</td><td>President</td><td>24/12/2012</td><td>9686946322</td>
+                    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+                      <td>ದುಗ್ಗಪ್ಪ ಪೂಜಾರಿ</td><td>2 ಕಿಲ್ಲೂರು</td><td>ಪುರುಷರು</td><td>General</td><td>Vice President</td><td>24/12/2012</td><td>9480158100</td>
+                    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+                      <td>ಅಬ್ದುಲ್ ಖಾದರ್</td><td>5 ಇನೋಳಿ</td><td>ಪುರುಷರು</td><td>Others</td><td>Member</td><td>25/06/2012</td><td>9482098919</td>
+                    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+                      <td>ಪ್ರಮೀಳ</td><td>4 ಇನೋಳಿ</td><td>ಮಹಿಳೆರು</td><td>SC</td><td>Member</td><td>25/06/2010</td><td>9242347884</td>
+                    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+                      <td>ಮಹಮ್ಮದ್ ನಾಸಿರ್</td><td>3 ಮಲಾರ್</td><td>ಪುರುಷರು</td><td>Others</td><td>Member</td><td>01/10/2011</td><td>9916054126</td>
+                    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+                      <td>ನೋಬರ್ಟ್ ಡಿ ಸಿಲ್ವ</td><td>5 ಇನೋಳಿ</td><td>ಪುರುಷರು</td><td>General</td><td>Member</td><td>25/06/2010</td><td>9886425299</td>
+                    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+                      <td>ಮಹಮ್ಮದ್</td><td>3 ಮಲಾರ್</td><td>ಪುರುಷರು</td><td>General</td><td>Member</td><td>25/06/2010</td><td>9964885558</td>
+                    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+                      <td>ರಾಜೀವಿ</td><td>3 ಮಲಾರ್</td><td>ಮಹಿಳೆರು</td><td>General</td><td>Member</td><td>25/06/2010</td><td>0</td>
+                    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+                      <td>ವಲೇರಿಯನ್ ಡಿ ಸೋಜಾ</td><td>4 ಇನೋಳಿ</td><td>ಪುರುಷರು</td><td>Others</td><td>Member</td><td>25/06/2010</td><td>9844050148</td>
+                    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+                      <td>ಚಂದ್ರಕಲಾ</td><td>2 ಕಿಲ್ಲೂರು</td><td>ಮಹಿಳೆರು</td><td>Others</td><td>Member</td><td>25/06/2010</td><td>8970745036</td>
+                    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+                      <td>ಲಾರೆನ್ಸ್ ಜೆರೋಮ್ ಲೋಬೊ</td><td>3 ಮಲಾರ್</td><td>ಪುರುಷರು</td><td>Others</td><td>Member</td><td>25/06/2010</td><td>9980103326</td>
+                    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+                      <td>ಎವುಲಿನ್ ನೊರೋನ್ಹಾ</td><td>2 ಕಿಲ್ಲೂರು</td><td>ಮಹಿಳೆರು</td><td>General</td><td>Member</td><td>25/06/2010</td><td>9164697816</td>
+                    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+                      <td>ಲೀಲಾವತಿ</td><td>5 ಇನೋಳಿ</td><td>ಮಹಿಳೆರು</td><td>Others</td><td>Member</td><td>25/06/2010</td><td>9449947495</td>
+                    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+                      <td>ಹೇಮಾವತಿ</td><td>ಪೋಡಾರ್ ಸೈಟ್</td><td>ಮಹಿಳೆರು</td><td>SC</td><td>Member</td><td>25/06/2010</td><td>9964162940</td>
+                    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+                      <td>ಯೋಗೀಶ್</td><td>1 ಪಾವೂರು</td><td>ಪುರುಷರು</td><td>Others</td><td>Member</td><td>25/06/2010</td><td>9972992099</td>
+                    </tr>
+              </table>
+            <!-- Second table -->
+            <table class="cur table table-striped table-responsive box" cellspacing="1" cellpadding="3" bordercolor="#657383" id="ContentPlaceHolder1_gdDisplay" style="background-color:White;border-color:White;border-width:2px;border-style:Ridge;font-size:9pt;width:100%;">
+			<tr align="left" style="color:#E7E7FF;background-color:#4A3C8C;font-weight:bold;">
+				<th scope="col">ಹೆಸರು</th><th scope="col">ವಾರ್ಡ್ ಹೆಸರು</th><th scope="col">ಲಿಂಗ</th><th scope="col">ಸದಸ್ಯರು</th><th scope="col">ಪದನಾಮ</th><th scope="col">ಸದಸ್ಯತ್ವ ಆರಂಭ ದಿನಾಂಕ</th><th scope="col">ಮೊಬೈಲ್ ಸಂಖ್ಯೆ</th>
+			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+				<td>ಫಿರೋಜ್ ಯಾನೆ ಮೊಹಮ್ಮ ದ್ ಫಿರೋಝ್</td><td>ಮೂರನೇ ವಾರ್ಡ್ </td><td>ಪುರುಷರು</td><td>Others</td><td>President</td><td>05/06/2015</td><td>7026295600</td>
+			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+				<td>ಲೀಲಾವತಿ</td><td>ಆರನೇ ವಾರ್ಡ್ </td><td>ಮಹಿಳೆರು</td><td>Others</td><td>Vice President</td><td>05/06/2015</td><td>9449947495</td>
+			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+				<td>ಚೆನ್ನಮ್ಮ</td><td>ಆರನೇ ವಾರ್ಡ್ </td><td>ಮಹಿಳೆರು</td><td>SC</td><td>Member</td><td>05/06/2015</td><td>9901638106</td>
+			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+				<td>ಮಹಾದೇವಮ್ಮ</td><td>ಆರನೇ ವಾರ್ಡ್ </td><td>ಮಹಿಳೆರು</td><td>ST</td><td>Member</td><td>05/06/2015</td><td>9901900408</td>
+			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+				<td>ವಾಮನ ಸಫಲಿಗ</td><td>ಒಂದನೇ ವಾರ್ಡ್ </td><td>ಪುರುಷರು</td><td>Others</td><td>Member</td><td>05/06/2015</td><td>9008002996</td>
+			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+				<td>ರವಿಕಲ</td><td>ಒಂದನೇ ವಾರ್ಡ್ </td><td>ಪುರುಷರು</td><td>General</td><td>Member</td><td>05/06/2015</td><td>9972257979</td>
+			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+				<td>ವಿವೇಕ್ ರೈ</td><td>ಎರಡನೇ ವಾರ್ಡ್ </td><td>ಪುರುಷರು</td><td>General</td><td>Member</td><td>05/06/2015</td><td>9886591893</td>
+			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+				<td>ಐ ಬಿ ಹಸೈನ್</td><td>ಐದನೇ ವಾರ್ಡ್ </td><td>ಪುರುಷರು</td><td>Others</td><td>Member</td><td>05/06/2015</td><td>9916054130</td>
+			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+				<td>ಎಮ್ ಪಿ ಹಸನ್</td><td>ಮೂರನೇ ವಾರ್ಡ್ </td><td>ಪುರುಷರು</td><td>Others</td><td>Member</td><td>05/06/2015</td><td>9844241488</td>
+			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+				<td>ಮಹಮ್ಮದ್</td><td>ಆರನೇ ವಾರ್ಡ್ </td><td>ಪುರುಷರು</td><td>Others</td><td>Member</td><td>05/06/2015</td><td>9900567492</td>
+			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+				<td>ರುಫಿನಾ ಲೂವಿಸ್</td><td>ಐದನೇ ವಾರ್ಡ್ </td><td>ಮಹಿಳೆರು</td><td>Others</td><td>Member</td><td>05/06/2015</td><td>8242235067</td>
+			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+				<td>ರೀಮಾ ಡಿಸೋಜ</td><td>ಎರಡನೇ ವಾರ್ಡ್ </td><td>ಮಹಿಳೆರು</td><td>Others</td><td>Member</td><td>05/06/2015</td><td>9740968848</td>
+			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+				<td>ಜಯಂತಿ</td><td>ನಾಲ್ಕನೇ ವಾರ್ಡ್ </td><td>ಮಹಿಳೆರು</td><td>Others</td><td>Member</td><td>05/06/2015</td><td>7353358718</td>
+			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+				<td>ಶಾಹಿದ</td><td>ಮೂರನೇ ವಾರ್ಡ್ </td><td>ಮಹಿಳೆರು</td><td>Others</td><td>Member</td><td>05/06/2015</td><td>9686942708</td>
+			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+				<td>ಅಬ್ದುಲ್ ಮಜೀದ್</td><td>ಮೂರನೇ ವಾರ್ಡ್ </td><td>ಪುರುಷರು</td><td>Others</td><td>Member</td><td>05/06/2015</td><td>9964510367</td>
+			</tr>
+		</table>
+
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+            <!-- Members End Model -->
+            <!-- Active projects Begin -->
+            <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                  <div class="modal-content" >
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel" style="font-size:22px;">Active Projects</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <select id="colorselector">
+                			<option selected="selected" >2017-18</option>
+                			<option >2018-19</option>
+                    	</select>
+
+                          <table  class=" table table-striped table-responsive" cellspacing="0" rules="all" bordercolor="#657383" border="1" id="ContentPlaceHolder1_gdScheme" style="font-size:9pt;border-collapse:collapse;">
+                               <tr align="left" style="color:#E7E7FF;background-color:#4A3C8C;font-weight:bold;">
+                                 <td>ಯೋಜನೆ</td><td>ಯೋಜನೆ ವಿವರಗಳು</td>
+                               </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+                                 <td>ಮಹಾತ್ಮ ಗಾಂಧಿ ರಾಷ್ಠ್ರೀಯ ಗ್ರಾಮೀಣ ಉದ್ಯೋಗ ಖಾತರಿ ಯೋಜನೆ</a></td><td>ರಾಷ್ಟ್ರೀ ಗ್ರಾಮೀಣ ಉದ್ಯೋಗ ಖಾತರಿ ಅಧಿನಿಯಮ 2005 ರಡಿ ಕರ್ನಾಟಕ ಗ್ರಾಮೀಣ ಉದ್ಯೋಗ ಖಾತರಿ ಯೋಜನೆಯನ್ನು ಫೆಬ್ರವರಿ 2, 2006 ರಂದು ರಾಜ್ಯದಲ್ಲಿ ಗುರುತಿಸಿ ಆಯ್ದ ಐದು ಜಿಲ್ಲೆಗಳಾದ ಬೀದರ್, ಚಿತ್ರದುರ್ಗ, ದಾವಣಗೆರೆ, ಗುಲ್ಬರ್ಗಾ ಮತ್ತು ರಾಯಚೂರುಗಳಲ್ಲಿ ಜಾರಿಗೆ ಬಂದಿದೆ.  ಗ್ರಾಮೀಣ ಜನರಿಗೆ ಆರ್ಥಿಕ ವರ್ಷವೊಂದರಲ್ಲಿ ಕನಿಷ್ಟ 100 ದಿನಗಳ ಉದ್ಯೋಗವನ್ನು ಪ್ರತಿ ಕುಟುಂಬಕ್ಕೆ ನೀಡಿ ಜೀವನಕ್ಕೆ ಭದ್ರತೆ ಒದಗಿಸುವುದೇ ಈ ಯೋಜನೆಯ ಮುಖ್ಯ ಉದ್ದೇಶವಾಗಿರುತ್ತದೆ.  ಉದ್ಯೋಗ ಕೋರಿ ಅರ್ಜಿ ಸಲ್ಲಿಸುವ ಗ್ರಾಮೀಣ ಜನರಿಗೆ 15 ದಿನಗಳ ಒಳಗಾಗಿ ಸರ್ಕಾರ ಕೆಲಸ ನೀಡಬೇಕು. ತಪ್ಪಿದಲ್ಲಿ ನಿರುದ್ಯೋಗ ಭತ್ಯೆ ನೀಡಬೇಕಾಗುತ್ತದೆ.  ಈ ಯೋಜನೆಯು ಕೇವಲ ಯೋಜನೆಯಾಗಿರದೆ ಕಾಯಿದೆಯಾಗಿದ್ದು ಹಿಂದೆ ಇರುವ ಉದ್ಯೋಗದಾಯಕ ಯೋಜನೆಗಳಿಗಿಂತ  ವಿಭಿನ್ನವಾಗಿರುತ್ತದೆ.  ಅಂದರೆ ಈ ಯೋಜನೆಯು ಕಾನೂನುಬದ್ಧ ಕಾರ್ಯಕ್ರಮವಾಗಿರುತ್ತದೆ.  ಈ ಯೋಜನೆಯನ್ನು ರಾಜ್ಯದ ಉಳಿದ ಎಲ್ಲಾ ಜಿಲ್ಲೆಗಳಲ್ಲೂ ಈಗ  ಜಾರಿಗೊಳಿಸಲಾಗಿರುತ್ತದೆ.</td>
+                               </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+                                 <td>ಎಸ್.ಜಿ.ಆರ್.ವ್ವೆ</td><td>&nbsp;</td>
+                               </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+                                 <td>ಸಂಪೂರ್ಣ ನೈರ್ಮಲ್ಯ ಯೋಜನೆ</td><td>ಸಂಪೂರ್ಣ ನೈರ್ಮಲ್ಯ ಯೋಜನೆಯು  ಕೇಂದ್ರ ಸರ್ಕಾರದ ಯೋಜನೆಯಾಗಿದೆ. ಸದ್ರಿ ಯೋಜನೆಯಡಿ ಶೌಚಾಲಯ ನಿರ್ಮಿಸಿಕೊಂಡ ಬಡತನ ರೇಖೆಗಿಂತ
+                            ಕೆಳಗಿನ ಫಲಾನುಭವಿಗಳಿಗೆ ರೂ. 2500.00 ಸಹಾಯಧನವನ್ನು  ಪಾವತಿಸಲಾಗುವುದು.  ಸದ್ರಿ ಯೋಜನೆಯಡಿ ಸಂಪೂರ್ಣ ನೈರ್ಮಲ್ಯವನ್ನು ಸಾಧಿಸಿದ ಗ್ರಾಮ ಪಂಚಾಯತುಗಳಿಗೆ
+                            ನಿರ್ಮಲ ಗ್ರಾಮ ಪುರಸ್ಕಾರವನ್ನು ನೀಡಿ ಗೌರವಿಸಲಾಗುತ್ತಿದೆ.</td>
+                               </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+                                 <td>ಇಂದಿರಾ ಆವಾಜ್ ಯೋಜನೆ</td><td>ಇಂದಿರಾ ಆವಾಜ್ ಯೋಜನೆಯು ಕೇಂದ್ರ ಸರ್ಕಾರದ ಯೋಜನೆಯಾಗಿದ್ದು, ನಿರಾಶ್ರಿತ ಬಡತನ ರೇಖೆಗಿಂತ ಕೆಳಗಿರುವ ಫಲಾನುಭವಿಗಳಿಗೆ 2008-09ನೇ
+                            ಸಾಲಿನಿಂದ ರೂ. 40,000.00 ಸಹಾಯಧನವನ್ನು ನೀಡಲಾಗುತ್ತಿದೆ.  ಇದು  ಪ.ಜಾ ಮತ್ತು ಪ.ಪಂ. ದವರಿಗಲ್ಲದೇ  ಇತರ ಫಲಾನುಭವಿಗಳಿಗೂ
+                            ಸಂಪೂರ್ಣ ಸಹಾಯಧನವಾಗಿರುತ್ತದೆ.</td>
+                               </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+                                 <td>ಸುವರ್ಣ ಗ್ರಾಮೋದಯ ಯೋಜನೆ/ಗ್ರಾಮ ವಿಕಾಸ ಯೋಜನೆ</td><td>&nbsp;</td>
+                               </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+                                 <td>ಆಶ್ರಯ ಯೋಜನೆ</td><td>ಸದ್ರಿ ಯೋಜನೆಯಲ್ಲಿ ನಿರಾಶ್ರಿತ ಬಡತನ ರೇಖೆಗಿಂತ ಕೆಳಗಿರುವ ಫಲಾನುಭವಿಗಳಿಗೆ ರೂ. 40,000.00 ಸಹಾಯಧನವನ್ನು ನೀಡಲಾಗುತ್ತಿದೆ
+                            ಇದು ಪ.ಜಾ ಮತ್ತು ಪ.ಪಂ. ದ ಫಲಾನುಭವಿಗಳಿಗೆ ಸಂಪೂರ್ಣ ಸಹಾಯಧನವಾಗಿದ್ದು, ಇತರ ಫಲಾನುಭವಿಗಳಿಗೆ ಅರ್ಧಾಂಶ ಸಾಲವಾಗಿದ್ದು,
+                            ಅರ್ಧಾಂಶ ಸಹಾಯಧನವಾಗಿದೆ.</td>
+                               </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+                                 <td>ಆಶ್ರಯ ಯೋಜನೆ</td><td>ಸದ್ರಿ ಯೋಜನೆಯಲ್ಲಿ ನಿರಾಶ್ರಿತ ಬಡತನ ರೇಖೆಗಿಂತ ಕೆಳಗಿರುವ ಫಲಾನುಭವಿಗಳಿಗೆ ರೂ. 40,000.00 ಸಹಾಯಧನವನ್ನು ನೀಡಲಾಗುತ್ತಿದೆ
+                            ಇದು ಪ.ಜಾ ಮತ್ತು ಪ.ಪಂ. ದ ಫಲಾನುಭವಿಗಳಿಗೆ ಸಂಪೂರ್ಣ ಸಹಾಯಧನವಾಗಿದ್ದು, ಇತರ ಫಲಾನುಭವಿಗಳಿಗೆ ಅರ್ಧಾಂಶ ಸಾಲವಾಗಿದ್ದು,
+                            ಅರ್ಧಾಂಶ ಸಹಾಯಧನವಾಗಿದೆ.</td>
+                               </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+                                 <td>12th ನೇ ಹಣಕಾಸು ಅನುದಾನ</td><td>ಕೇಂದ್ರ ಸರ್ಕಾರದಿಂದ ಈ ಯೋಜನೆಯಡಿ ಗ್ರಾಮೀಣ ರಸ್ತೆ ಗಳ ನಿರ್ವಹಣೆಗಾಗಿ 2006-07ನೇ ಸಾಲಿನಲ್ಲಿ ಅನುದಾನವನ್ನು ಒದಗಿಸಲಾಗುತ್ತದೆ.  ಈ ಅನುದಾನವನ್ನು ಗ್ರಾಮೀಣ ರಸ್ತೆಯ ಉದ್ದಳತೆಯ ಆಧಾರದ ಮೇಲೆ ಹಂಚಿಕೆ ಮಾಡಲಾಗಿದೆ.</td>
+                               </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+                                 <td>ಗ್ರಾಮೀಣ ಗ್ರಂಥಾಲಯ</td><td>ಗ್ರಾಮೀಣ ಗ್ರಂಥಾಲಯ ಯೋಜನೆಯು ಪ್ರತೀ ಗ್ರಾಮ ಮಟ್ಟದಲ್ಲಿ ಗ್ರಂಥಾಲಯವನ್ನು ನಿರ್ಮಿಸುವುದಾಗಿದೆ.  ಪ್ರತೀ ಗ್ರಾಮ ಪಂಚಾಯತ್ ಮಟ್ಟದಲ್ಲಿ ಗ್ರಾಮೀಣ
+                            ಗ್ರಂಥಾಲಯವಿದ್ದು ಒಬ್ಬರು ಗ್ರಂಥಪಾಲಕರಿರುತ್ತಾರೆ.  ಗ್ರಾಮೀಣ ಮಟ್ಟದಲ್ಲಿರುವ ಜನರು ಪುಸ್ತಕಗಳನ್ನು ಓದಲು ಅನುಕೂಲವಾಗುವಂತೆ ಸದ್ರಿ
+                            ಯೋಜನೆಯು ಜಾರಿಗೆ ಬಂದಿದೆ.</td>
+                               </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+                                 <td>ರಾಷ್ಠೀಯ ಗ್ರಾಮೀಣ ನೀರು ಸರಬರಾಜು ಯೋಜನೆ</td><td>&nbsp;</td>
+                               </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+                                 <td>13ನೇ ಹಣಕಾಸು ಆನುದಾನ</td><td>&nbsp;</td>
+                               </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+                                 <td>ನಿರ್ಮಲ ಗ್ರಾಮ ಪುರಸ್ಕಾರ ಯೋಜನೆ</td><td>ನಿರ್ಮಲ ಗ್ರಾಮ ಪುರಸ್ಕಾರ ಯೋಜನೆ</td>
+                               </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+                                 <td>14ನೇ ಹಣಕಾಸು ಯೋಜನೆ</td><td>The Fourteenth Finance Commission (FC-XIV) was constituted by the President under
+                            Article 280 of the Constitution on 2 January 2013 to make recommendations for the period 2015-
+                            20. Dr. Y. V. Reddy was appointed the Chairman of the Commission</td>
+                               </tr>
+                             </table>
+
+
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+
+            <!--  End Active Projects -->
+
+
+            <!--development projects  -->
+            <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                  <div class="modal-content" >
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel" style="font-size:22px;">Devlopment Projects</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+
+  		<table class=" table table-striped table-responsive" cellspacing="1" cellpadding="3" bordercolor="#657383" id="ContentPlaceHolder1_gdDisplay" style="background-color:White;border-color:White;border-width:2px;border-style:Ridge;font-size:9pt;width:100%;">
+  			<tr align="left" style="color:#E7E7FF;background-color:#4A3C8C;font-weight:bold;">
+  				<th scope="col">Work ID</th><th scope="col">Implementing Office</th><th scope="col">Constituency</th><th scope="col">Work</th><th scope="col">Total Estimation Cost</th><th scope="col">Status</th>
+  			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+  				<td>1666203</td><td>ಪಾವೂರು</td><td>MANGALORE</td><td>ಇನೋಳಿ ಎ ಸೈಟ್ ಸಾರ್ವಜನಿಕ ತೋಡಿಗೆ ಹ್ಯೂಮ್ ಪೈಪು ಅಳವಡಿಕೆ</td><td>0.25</td><td>Action Plan</td>
+  			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+  				<td>1667314</td><td>ಕಾರ್ಯಪಾಲಕ ಅಭಿಯಂತರರ ಕಚೇರಿ,ಕರ್ನಾಟಕ ಗ್ರಾಮೀಣ ನೀರು ಸರಬರಾಜು ಮತ್ತು ನೈರ್ಮಲ್ಯ ಇಲಾಖೆ,ದ.ಕ  ವಿಭಾಗ</td><td>MANGALORE</td><td>ಮಂಗಳೂರು ತಾಲೂಕು ಪಾವೂರು ಗ್ರಾಮ ಪಂಚಾಯತಿನ ಪದವು ಎಂಬಲ್ಲಿ ಕೊಳವೆ ಬಾವಿ ರಚನೆ</td><td>1.00</td><td>Work Completed</td>
+  			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+  				<td>1674576</td><td>ಕಾರ್ಯನಿರ್ವಾಹಕ ಅಭಿಯಂತರರ ಪಂ.ರಾಜ್ ಇಂಜಿನಿಯರಿಂಗ್ ವಿಭಾಗ ಮಂಗಳೂರು</td><td>MANGALORE CITY SOUTH</td><td>ಮಂಗಳೂರು ತಾಲೂಕು ಪಾವೂರು ಗ್ರಾಮ ಪಂಚಾಯತ್ ವ್ಯಾಪ್ತಿಯಲ್ಲಿ ಚೇಂಬೈಲ್ ರಸ್ತೆ ಕಾಂಕ್ರೀಟೀಕರಣ(ಚೈ. 0.00 ದಿಂದ 0.05  ಕಿ.ಮೀ)</td><td>2.70</td><td>Admin Approval</td>
+  			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+  				<td>1698964</td><td>ಕಾರ್ಯಪಾಲಕ ಅಭಿಯಂತರರ ಕಚೇರಿ,ಕರ್ನಾಟಕ ಗ್ರಾಮೀಣ ನೀರು ಸರಬರಾಜು ಮತ್ತು ನೈರ್ಮಲ್ಯ ಇಲಾಖೆ,ದ.ಕ  ವಿಭಾಗ</td><td>MANGALORE</td><td>ಮಂಗಳೂರು ತಾಲೂಕು ಪಾವೂರು ಗ್ರಾಮ ಪಂಚಾಯತ್ ವ್ಯಾಪ್ತಿಯ ಪಾವೂರು ಉಳಿಯ ದ್ವೀಪದಲ್ಲಿ ಕುಡಿಯುವ ನೀರಿನ ಬಾವಿ ಪುನಶ್ಚೇತನ</td><td>1.50</td><td>Work Completed</td>
+  			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+  				<td>1705685</td><td>ಕಾರ್ಯಪಾಲಕ ಅಭಿಯಂತರರ ಕಚೇರಿ,ಕರ್ನಾಟಕ ಗ್ರಾಮೀಣ ನೀರು ಸರಬರಾಜು ಮತ್ತು ನೈರ್ಮಲ್ಯ ಇಲಾಖೆ,ದ.ಕ  ವಿಭಾಗ</td><td>MANGALORE</td><td>ಮಂಗಳೂರು ತಾಲೂಕು ಪಾವೂರು ಗ್ರಾಮ ಪಂಚಾಯತಿನ ಮಲಾರಪದವು ಎಂಬಲ್ಲಿ ಕೊಳವೆ ಬಾವಿ ರಚನೆ</td><td>1.00</td><td>Work Completed</td>
+  			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+  				<td>1712194</td><td>ತಾಲ್ಲೂಕು ಪಂಚಾಯತ್ ಮಂಗಳೂರು</td><td>MANGALORE</td><td>ಪಾವೂರು  ಗ್ರಾಮ ಕೆಳಗಿನ ಮಾರ್ಗಕ್ಕೆ ಚರಂಡಿ ರಚನೆ</td><td>1.00</td><td>Measurement Stage</td>
+  			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+  				<td>1712212</td><td>ತಾಲ್ಲೂಕು ಪಂಚಾಯತ್ ಮಂಗಳೂರು</td><td>MANGALORE</td><td>ಪಾ&#192;ವೂರು  ಗ್ರಾಮದ ಇನ್ನೋಳಿ ಬಿ. ಸೈಟ್ ರಸ್ತೆ ಜರಿದ ಭಾಗಕ್ಕೆ ತಡೆಗೋಡೆ ರಚನೆ</td><td>0.75</td><td>Measurement Stage</td>
+  			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+  				<td>1712227</td><td>ತಾಲ್ಲೂಕು ಪಂಚಾಯತ್ ಮಂಗಳೂರು</td><td>MANGALORE</td><td>ಪಾವೂರು  ಗ್ರಾಮ ಸಲಾಫಿ ಮಸೀದಿ ಬಳಿ ರಸ್ತೆಗೆ ತಡೆಗೋಡೆ ರಚನೆ</td><td>0.75</td><td>Measurement Stage</td>
+  			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+  				<td>1712235</td><td>ತಾಲ್ಲೂಕು ಪಂಚಾಯತ್ ಮಂಗಳೂರು</td><td>MANGALORE</td><td>ಪಾವೂರು ಗ್ರಾಮ ಬಿ. ಎಸ್. ಇಬ್ರಾಹಿಂ ಮನೆ ಬಳಿ ಕಾಲುದಾರಿ ಅಭಿವೃಧ್ಧಿ</td><td>0.40</td><td>Work Completed</td>
+  			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+  				<td>1712244</td><td>ತಾಲ್ಲೂಕು ಪಂಚಾಯತ್ ಮಂಗಳೂರು</td><td>MANGALORE</td><td>ಪಾವೂರು ಗ್ರಾಮದ ಪೋಡಾರು ಬೈಲಿನಿಂದ ಪೋಡಾರು ಸೈಟ್ ವರೆಗೆ ಪೈಪ್ ಲೈನ್ ವಿಸ್ತರಣೆ</td><td>1.00</td><td>Work Completed</td>
+  			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+  				<td>1712284</td><td>ತಾಲ್ಲೂಕು ಪಂಚಾಯತ್ ಮಂಗಳೂರು</td><td>MANGALORE</td><td>ಪಾವೂರು ಗ್ರಾಮದ ಬದ್ರಿಯಾ ನಗರ ರಸ್ತೆ ಸಮತಟ್ಟು</td><td>0.66</td><td>Work Completed</td>
+  			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+  				<td>1712287</td><td>ತಾಲ್ಲೂಕು ಪಂಚಾಯತ್ ಮಂಗಳೂರು</td><td>MANGALORE</td><td>ಪಾವೂರು  ಗ್ರಾಮ ಪಜಿಲ ಪ.ಜಾತಿ ಕಾಲನಿ ರಸ್ತೆ ಅಭಿವೃಧ್ಧಿ</td><td>2.00</td><td>Work Completed</td>
+  			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+  				<td>1712299</td><td>ತಾಲ್ಲೂಕು ಪಂಚಾಯತ್ ಮಂಗಳೂರು</td><td>MANGALORE</td><td>ಪಾವೂರು ಗ್ರಾಮದ ವಿಕಲಚೇತನ ಚಾಂದಿನಿ ಕೋಂ ವಿಶ&#192;್ವನಾಥ ಪೂಜಾರಿ ಅಕ್ವಗಾರ್ಡ್ ಖರೀದಿ</td><td>0.16</td><td>Action Plan</td>
+  			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+  				<td>1735082</td><td>ತಾಲ್ಲೂಕು ಪಂಚಾಯತ್ ಮಂಗಳೂರು</td><td>MANGALORE</td><td>ಪಾವೂರು ಗ್ರಾಮ ಪಂಚಾಯತ್ ವ್ಯಾಪ್ತಿಯ ಅರಸ್ತಾನ ಎಂಬಲ್ಲಿ ಸಾರ್ವಜನಿಕ ಶೌಚಾಲಯ ನಿರ್ಮಾಣ (ಸ.ನಂ. 93-ಪಿ2)</td><td>5.00</td><td>Action Plan</td>
+  			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+  				<td>1735130</td><td>ತಾಲ್ಲೂಕು ಪಂಚಾಯತ್ ಮಂಗಳೂರು</td><td>MANGALORE</td><td>ಪಾವೂರು ಸರಕಾರಿ ಪ್ರೌಢಶಾಲೆ ಕಂಬ್ಲಪದವು ಇಲ್ಲಿನ ಶೌಚಾಲಯ ಅಭಿವೃದ್ದಿ</td><td>0.50</td><td>Action Plan</td>
+  			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+  				<td>1765462</td><td>ತಾಲ್ಲೂಕು ಪಂಚಾಯತ್ ಮಂಗಳೂರು</td><td>MANGALORE CITY SOUTH</td><td>ಕೊಳವೂರು ಮುತ್ತೂರು ಸರಕಾರಿ ಹಿರಿಯ ಪ್ರಾಥಮಿಕ ಶಾಲೆ, ದುರಸ್ತಿ</td><td>1.00</td><td>Work Completed</td>
+  			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+  				<td>1766813</td><td>ತಾಲ್ಲೂಕು ಪಂಚಾಯತ್ ಮಂಗಳೂರು</td><td>MANGALORE</td><td>ಪಾವೂರು ಗ್ರಾಮದ ಕೆಲ್ಲೂರು ಪ.ಜಾತಿ ಕಾಲೊನಿಗೆ ಕಾಲು ಸಂಕ ರಚನೆ</td><td>1.00</td><td>Work Completed</td>
+  			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+  				<td>1766863</td><td>ತಾಲ್ಲೂಕು ಪಂಚಾಯತ್ ಮಂಗಳೂರು</td><td>MANGALORE</td><td>ಪಾವೂರು ಗ್ರಾಮದ ಪೋಟರ್ ಸೈಟ್ ಪ.ಜಾತಿ ಕಾಲೊನಿಗೆ ಪೈಪ್ ಲೈನ್ ಅಳವಡಿಕೆ</td><td>1.00</td><td>Work Completed</td>
+  			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+  				<td>1780654</td><td>ತಾಲ್ಲೂಕು ಪಂಚಾಯತ್ ಮಂಗಳೂರು</td><td>MANGALORE</td><td>ಮಂಗಳೂರು ತಾಲೂಕು ಪಾವೂರು ಗ್ರಾಮದ ಇನ್ನೋಳಿ ಬಿ ಸೈಟ್ ಎಂಬಲ್ಲಿ  ಸರಕಾರಿ ತೋಡಿಗೆ ಹ್ಯೂಂ ಪೈಪ್ ಅಳವಡಿಕೆ</td><td>0.50</td><td>Work Completed</td>
+  			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+  				<td>1782340</td><td>ತಾಲ್ಲೂಕು ಪಂಚಾಯತ್ ಮಂಗಳೂರು</td><td>MANGALORE</td><td>ಪಾವೂರು ಗ್ರಾಮದ ಮಲಾರ್ ಪದವು ಎಂಬಲ್ಲಿ ಪೈಪ್ ಲೈನ್ ವಿಸ್ತರಣೆ</td><td>1.00</td><td>Work Completed</td>
+  			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+  				<td>1793762</td><td>ತಾಲ್ಲೂಕು ಪಂಚಾಯತ್ ಮಂಗಳೂರು</td><td>MANGALORE</td><td>ಪಾವೂರು ಗ್ರಾಮದ ಇನ್ನೋಳಿ ಬಿ. ಸೈಟ್ ಎಂಬಲ್ಲಿ ವಿಶ್ವನಾಥರವರ ಮನೆ ಬಳಿ ರಸ್ತೆ ಜರಿದ ಭಾಗ ತಡೆಗೋಡೆ ರಚನೆ</td><td>0.69</td><td>Action Plan</td>
+  			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+  				<td>1818178</td><td>ಕಾರ್ಯನಿರ್ವಾಹಕ ಅಭಿಯಂತರರ ಪಂ.ರಾಜ್ ಇಂಜಿನಿಯರಿಂಗ್ ವಿಭಾಗ ಮಂಗಳೂರು</td><td>MANGALORE CITY SOUTH</td><td>ಮಂಗಳೂರು ತಾಲೂಕು ಪಾವೂರು ಗ್ರಾಮ ಪಂಚಾಯತ್ ಪಾವೂರು ಗ್ರಾಮದ ಪ.ಜಾತಿ ಕಾಲನಿಗೆ ರಸ್ತೆ ಅಭಿವೃದ್ಧಿ (ಕಾಂಕ್ರೀಟೀಕರಣ ಚೈ. 0.60 ದಿಂದ 0.64 ವರೆಗೆ)</td><td>1.80</td><td>Work Completed</td>
+  			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+  				<td>1818282</td><td>ಕಾರ್ಯನಿರ್ವಾಹಕ ಅಭಿಯಂತರರ ಪಂ.ರಾಜ್ ಇಂಜಿನಿಯರಿಂಗ್ ವಿಭಾಗ ಮಂಗಳೂರು</td><td>MANGALORE CITY SOUTH</td><td>ಮಂಗಳೂರು ತಾಲೂಕು ಪಾವೂರು ಗ್ರಾಮ ಪಂಚಾಯತ್ ವ್ಯಾಪ್ತಿಯಲ್ಲಿ ಚೆಂಬೈಲ್ ರಸ್ತೆ ಕಾಂಕ್ರೀಟೀಕರಣ (ಚೈ. 0.00 ದಿಂದ 0.50 ಕಿ.ಮೀ. ನಲ್ಲಿ ಆಯ್ದಭಾಗ)</td><td>2.70</td><td>Work Completed</td>
+  			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+  				<td>1822780</td><td>ತಾಲ್ಲೂಕು ಪಂಚಾಯತ್ ಮಂಗಳೂರು</td><td>MANGALORE</td><td>ಪಾವೂರು ಗ್ರಾಮದ ಕಿಲ್ಲೂರು ಬೊಟ್ಟಿಮಾರು  ರಸ್ತೆ ಅಭಿವೃಧ್ಧಿ</td><td>0.55</td><td>Work Completed</td>
+  			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+  				<td>1839226</td><td>ತಾಲ್ಲೂಕು ಪಂಚಾಯತ್ ಮಂಗಳೂರು</td><td>MANGALORE</td><td>ಪಾವೂರು ಗ್ರಾಮದ ಮಲಾರ್ ಬದ್ರಿಯಾ ನಗರ ಹನೀಫ್ ಮನೆ ಬಳಿ ಹ್ಯೂಮ್ ಪೈಪ್ ಲೈನ್ ಅಳವಡಿಕೆ</td><td>0.30</td><td>Work Completed</td>
+  			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+  				<td>1845410</td><td>ತಾಲ್ಲೂಕು ಪಂಚಾಯತ್ ಮಂಗಳೂರು</td><td>MANGALORE</td><td>ಮಂಗಳೂರು ತಾಲೂಕು ಪಾವೂರು ಗ್ರಾಮ ಪಂಚಾಯತ್ ವ್ಯಾಪ್ತಿಯ ಪಾವೂರು ಗ್ರಾಮದ ಬದ್ರಿಯ ನಗರ ಅಂಗನವಾಡಿ ಕೇಂದ್ರದ ಕಿಟಕಿ ,ಬಾಗಿಲು ದುರಸ್ತಿ</td><td>0.40</td><td>Work Completed</td>
+  			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+  				<td>1870610</td><td>ತಾಲ್ಲೂಕು ಪಂಚಾಯತ್ ಮಂಗಳೂರು</td><td>MANGALORE</td><td>ಪಾವೂರು ಸರಕಾರಿ ಪ್ರೌಢ ಶಾಲೆಯ ಶೌಚಾಲಯ ಕಟ್ಟಡ ಪಿಟ್ ರಚನೆ</td><td>0.50</td><td>Work Completed</td>
+  			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+  				<td>1873022</td><td>ಕಾರ್ಯನಿರ್ವಾಹಕ ಅಭಿಯಂತರರ ಪಂ.ರಾಜ್ ಇಂಜಿನಿಯರಿಂಗ್ ವಿಭಾಗ ಮಂಗಳೂರು</td><td>MANGALORE</td><td>ಮಂಗಳೂರು ತಾಲೂಕು ಪಾವೂರು ಗ್ರಾಮ ಪಂಚಾಯತ್ ಪದವು ಜಂಕ್ಷನ ರಸ್ತೆಯಲ್ಲಿ ರಸ್ತೆ ಮತ್ತು blockspot ಗಳ ಸುರಕ್ಷತಾ ಕ್ರಮ ಯೋಜನೆ</td><td>1.50</td><td>Work Completed</td>
+  			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+  				<td>1874292</td><td>ಕಾರ್ಯನಿರ್ವಾಹಕ ಅಭಿಯಂತರರ ಪಂ.ರಾಜ್ ಇಂಜಿನಿಯರಿಂಗ್ ವಿಭಾಗ ಮಂಗಳೂರು</td><td>MANGALORE</td><td>ಮಂಗಳೂರು ತಾಲೂಕು ಪಾವೂರು ಗ್ರಾಮ ಪಂಚಾಯತ್ ವ್ಯಾಪ್ತಿಯ ಪಾವೂರು (ಕಂಬ್ಳಪದವು) ಎಂಬಲ್ಲಿ ಹೈಮಾಸ್ಕ್ ಲೈಟ್ ಅಳವಡಿಸುವುದು</td><td>0.80</td><td>Work Completed</td>
+  			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+  				<td>1882907</td><td>ತಾಲ್ಲೂಕು ಪಂಚಾಯತ್ ಮಂಗಳೂರು</td><td>MANGALORE</td><td>ಮಂ ತಾ ಪಾವೂರು ಗ್ರಾ.ಪಂ ವ್ಯಾಪ್ತಿಯ ಪಾವೂರು ಗ್ರಾಮದ ಕಂಬ್ಲಪದವು ಅಂಬೇಡ್ಕರ್ ಭವನದ ಬಳಿ ದಾರಿದೀಪ ಅಳವಡಿಕೆ</td><td>0.59</td><td>Work Completed</td>
+  			</tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+  				<td>1905867</td><td>ಪಾವೂರು</td><td>MANGALORE</td><td>ಕಿಲ್ಲೂರು ಕೋರ್ದಬ್ಬು ದೈವಸ್ಥಾನದ ಬಳಿ ಕಾಲುದಾರಿ ರಚನೆ</td><td>1.50</td><td>Inspection Stage</td>
+  			</tr>
+  		</table>
+
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+  </div>
+            <!--End Development Projects -->
+
+            <!-- Beneficiary details starts-->
+
+            <div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                  <div class="modal-content" >
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel" style="font-size:22px;">Beneficiary Details</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+
+
+      <table  class=" table table-striped table-responsive" cellspacing="1" cellpadding="3" >
+    <tr align="left" style="color:#E7E7FF;background-color:#4A3C8C;font-weight:bold;">
+      <th scope="col">ಹೆಸರು</th><th scope="col">ತಂದೆಯ ಹೆಸರು</th><th scope="col">ವಿಳಾಸ</th><th scope="col">ದೂರವಾಣಿ</th><th scope="col">ಯೋಜನೆ</th>
+    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+      <td>ಅಮೀನಮ್ಮ</td><td>ಅಬೂಬಕ್ಕರ್</td><td>ಕೋಂ ಅಬೂಬಕ್ಕರ್
+ಪೋಡಾರ್ ಸೈಟ್</td><td>0</td><td>ಆಶ್ರಯ ಯೋಜನೆ</td>
+    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+      <td>ಆಲೀಮಮ್ಮ</td><td>ಆಲಿಯಬ್ಬ</td><td>ಇನೋಳಿ ಬಿ ಸೈಟ್</td><td>0</td><td>ಆಶ್ರಯ ಯೋಜನೆ</td>
+    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+      <td>ಐಸಮ್ಮ</td><td>ಇದ್ದಿನಬ್ಬ</td><td>ಇನೋಳಿ</td><td>0</td><td>ಆಶ್ರಯ ಯೋಜನೆ</td>
+    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+      <td>ಕಮಲ</td><td>ಗೋಪಾಲ</td><td>ಕಂಬಳ ಪದವು</td><td>0</td><td>ಆಶ್ರಯ ಯೋಜನೆ</td>
+    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+      <td>ಖತೀಜಮ್ಮ</td><td>ಅಬ್ಬಾಸ್</td><td>ಕಂಡಿಗ</td><td>0</td><td>ಆಶ್ರಯ ಯೋಜನೆ</td>
+    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+      <td>ಜಮೀಳ</td><td>ಅಹಮದ್ ಹುಸ್ಯೆನ್</td><td>ಇನೋಳಿ ಬಿ ಸೈಟ್</td><td>0</td><td>ಆಶ್ರಯ ಯೋಜನೆ</td>
+    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+      <td>ಜಮೀಳ</td><td>ಸಮದ್</td><td>ಅಕ್ಷರನಗರ ಪಾವೂರು</td><td>0</td><td>ಆಶ್ರಯ ಯೋಜನೆ</td>
+    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+      <td>ಜೈನಾಬು</td><td>ಅಬ್ದುಲ್ ಖಾದರ್</td><td>ಪಾವೂರು</td><td>0</td><td>ಆಶ್ರಯ ಯೋಜನೆ</td>
+    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+      <td>ಜೋಹರಾ</td><td>ಹುಸೇನಬ್ಬ</td><td>ಅಕ್ಷರನಗರ</td><td>0</td><td>ಆಶ್ರಯ ಯೋಜನೆ</td>
+    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+      <td>ದಿಲ್ ಶಾದ್</td><td>ಅಬ್ದುಲ್ ರಝಕ್</td><td>ಇನೋಳಿ  ಕೆಳಗಿನಕೆರೆ</td><td>0</td><td>ಆಶ್ರಯ ಯೋಜನೆ</td>
+    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+      <td>ದುಲೇಖಾ</td><td>ಹಾಮದ್ ಬ್ಯಾರಿ</td><td>ಮಲಾರ್</td><td>0</td><td>ಆಶ್ರಯ ಯೋಜನೆ</td>
+    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+      <td>ದುಲೈಖಾ</td><td>ಅಬ್ದುಲ್ ಕೇರಿಂ</td><td>ಇನೋಳಿ</td><td>0</td><td>ಆಶ್ರಯ ಯೋಜನೆ</td>
+    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+      <td>ನೆಬಿಸ</td><td>ಉಸ್ಮಾನ್</td><td>ಬಿನ್ ಉಸ್ಮಾನ್
+ಕಿಲ್ಲೂರು</td><td>0</td><td>ಆಶ್ರಯ ಯೋಜನೆ</td>
+    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+      <td>ಮಮ್ತಾಜ್</td><td>ಅಬ್ದುಲ್ ಸಮಾದ್</td><td>ಕಂಡಿಗ</td><td>0</td><td>ಆಶ್ರಯ ಯೋಜನೆ</td>
+    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+      <td>ಯಶೋಧ</td><td>ಡೋಬ ಮುಖಾರಿ</td><td>ಕೋಂ ಡೋಬ ಮುಖಾರಿ
+ಪಾವೂರು ಕಂಬಳ ಕೋಡಿ</td><td>0</td><td>ಆಶ್ರಯ ಯೋಜನೆ</td>
+    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+      <td>ರಮ್ಲತ್</td><td>ಯು ಅಬ್ಬಾಸ್</td><td>ಬಿನ್ ಯು ಅಬ್ಬಾಸ್
+ಬದ್ರಿಯಾ ನಗರ</td><td>0</td><td>ಆಶ್ರಯ ಯೋಜನೆ</td>
+    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+      <td>ರಾಜೀವಿ</td><td>ಆನಂದ ಬೆಳ್ಚಾಡ</td><td>ಕೋಂ ಅನಂದ
+ಪೋಡಾರ್ ಸೈಟ್</td><td>0</td><td>ಆಶ್ರಯ ಯೋಜನೆ</td>
+    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+      <td>ಲತಾ</td><td>ನಾಗೇಶ್</td><td>ಕಿಲ್ಲೂರು</td><td>0</td><td>ಆಶ್ರಯ ಯೋಜನೆ</td>
+    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+      <td>ಲಲಿತ</td><td>ಐತಪ್ಪ</td><td>ಕೋಂ ಐತಪ್ಪ
+ಕಿಲ್ಲೂರು</td><td>0</td><td>ಆಶ್ರಯ ಯೋಜನೆ</td>
+    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+      <td>ಲೀಲಾ</td><td>ದಿ. ಸುಂದರ</td><td>ಇನೋಳಿ ಬಿ ಸೈಟ್</td><td>0</td><td>ಆಶ್ರಯ ಯೋಜನೆ</td>
+    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+      <td>ಲೀಲಾ</td><td>ದೋಗು ಮುಖಾರಿ</td><td>ಕೋಂ ದೋಗು
+ಪೋಡಾರ್ ಸೈಟ್</td><td>0</td><td>ಆಶ್ರಯ ಯೋಜನೆ</td>
+    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+      <td>ವನಿತಾ</td><td>ವನಿತಾ</td><td>ಇನೋಳಿ ಬಿ ಸೈಟ್</td><td>0</td><td>ಆಶ್ರಯ ಯೋಜನೆ</td>
+    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+      <td>ಸಾರಮ್ಮ</td><td>ಹನೀಫ್</td><td>ಕೋಂ. ಹನೀಫ್
+ಮಲಾರ್</td><td>0</td><td>ಆಶ್ರಯ ಯೋಜನೆ</td>
+    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+      <td>ಸಾರಮ್ಮ</td><td>ಹುಸೈನಾರ್</td><td>ಇನೋಳಿ</td><td>0</td><td>ಆಶ್ರಯ ಯೋಜನೆ</td>
+    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+      <td>ಸುಗಂಧಿ</td><td>ಅಚ್ಯುತ</td><td>ಕೊಂತಪದವು</td><td>0</td><td>ಆಶ್ರಯ ಯೋಜನೆ</td>
+    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+      <td>ಹಾಜಿರಮ್ಮ</td><td>ಹುಸೇನ್</td><td>ಇನೋಳಿ ದಿಡ್ಡಿಂಜ</td><td>0</td><td>ಆಶ್ರಯ ಯೋಜನೆ</td>
+    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+      <td>ಅಪ್ಪಿ</td><td>ವೆಂಕಪ್ಪ</td><td>ಮಜಿಕಟ್ಟ</td><td>0</td><td>ಇಂದಿರಾ ಆವಾಜ್ ಯೋಜನೆ</td>
+    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+      <td>ಖತೀಜಮ್ಮ</td><td>ದಾವೂದ್</td><td>ಬದ್ರಿಯಾನಗರ</td><td>0</td><td>ಇಂದಿರಾ ಆವಾಜ್ ಯೋಜನೆ</td>
+    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+      <td>ಗಂಗಮ್ಮ</td><td>ಕೊರಗು</td><td>ಕಂಬಳ ಪದವು</td><td>0</td><td>ಇಂದಿರಾ ಆವಾಜ್ ಯೋಜನೆ</td>
+    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+      <td>ಗೀತಾ</td><td>ಅಶೋಕ</td><td>ಇನೋಳಿ ಪಜಿಲಾ</td><td>0</td><td>ಇಂದಿರಾ ಆವಾಜ್ ಯೋಜನೆ</td>
+    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+      <td>ಚಂಪ</td><td>ರಾಮಚಂದ್ರ</td><td>ಕೊಂತಪದವು</td><td>0</td><td>ಇಂದಿರಾ ಆವಾಜ್ ಯೋಜನೆ</td>
+    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+      <td>ಚೆನ್ನಮ್ಮ</td><td>ಕುಟ್ಟಿ</td><td>ನಾಗಮೂಲೆ</td><td>0</td><td>ಇಂದಿರಾ ಆವಾಜ್ ಯೋಜನೆ</td>
+    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+      <td>ಜೋಹಾರ</td><td>ಕೋಂ. ಅಬೂಬಕ್ಕರ್</td><td>ಇನೋಳಿ ಕೆಳಗಿನ ಕೆರೆ</td><td>0</td><td>ಇಂದಿರಾ ಆವಾಜ್ ಯೋಜನೆ</td>
+    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+      <td>ಭವಾನಿ</td><td>ಶೀನ</td><td>ನಾಗಮೂಲೆ ಪಾವೂರು</td><td>0</td><td>ಇಂದಿರಾ ಆವಾಜ್ ಯೋಜನೆ</td>
+    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+      <td>ರೀತಾ</td><td>ಬಿನ್.  ಗೋವಿಂದ</td><td>ನಾಗಮೂಲೆ ಪಾವೂರು</td><td>0</td><td>ಇಂದಿರಾ ಆವಾಜ್ ಯೋಜನೆ</td>
+    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+      <td>ಲಲಿತ</td><td>ಮೋನಪ್ಪ</td><td>ಪೋಡಾರ್ ಸೈಟ್</td><td>0</td><td>ಇಂದಿರಾ ಆವಾಜ್ ಯೋಜನೆ</td>
+    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+      <td>ವಸಂತಿ</td><td>ಹೇಮಂತ</td><td>ಕಿಲ್ಲೂರು</td><td>0</td><td>ಇಂದಿರಾ ಆವಾಜ್ ಯೋಜನೆ</td>
+    </tr><tr align="left" style="color:Black;background-color:#DEDFDE;">
+      <td>ಶಾರದಾ</td><td>ಕೋಂ.ಸುಂದರ</td><td>ಇನೋಳಿ ಪಜಿಲ</td><td>0</td><td>ಇಂದಿರಾ ಆವಾಜ್ ಯೋಜನೆ</td>
+    </tr>
+  </table>
+
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+  </div>
+
+              <!-- Beneficiary details end-->
+    <!-- Loader -->
+      <div id="preloader"><div id="status"><div class="spinner"></div></div></div>
+
+      <!-- Navigation Bar-->
+      <header id="topnav">
+          <div class="topbar-main">
+              <div class="container-fluid">
+              <ul class="list-inline float-right mb-0">
+                <li class="menu-item list-inline-item">
+                    <!-- Mobile menu toggle-->
+                    <a class="navbar-toggle nav-link">
+                        <div class="lines">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </a>
+                    <!-- End mobile menu toggle-->
+                </li>
+          </ul>
+
+          <!-- MENU Start -->
+          <div class="navbar-custom">
+              <div class="container-fluid">
+                  <div id="navigation">
+                      <!-- Navigation Menu-->
+                      <ul class="navigation-menu">
+
+                        <li  class="has-submenu hidden-lg">  <a href="#" class=" scrollto"><img width="34px" height="34px"src="{% static 'gramaimg/logo.png' %}" alt=""></a>
+                          </li>
+
+                          <li class="has-submenu">
+                              <a href="#"><i class="ti-home"></i>Dashboard</a>
+                          </li>
+
+                          <li class="has-submenu">
+                              <a href="#"><i class="ti-light-bulb"></i>Inforamation</a>
+                              <ul class="submenu megamenu">
+                                  <li>
+                                      <ul>
+                                          <li><a href="#"  data-toggle="modal" data-target="#exampleModal">members</a></li>
+                                            <li><a href="#"  data-toggle="modal" data-target="#exampleModal2">Active Projects</a></li>
+                                            <li><a href="#"  data-toggle="modal" data-target="#exampleModal3">Development works</a></li>
+                                          <li><a href="#"  data-toggle="modal" data-target="#exampleModal4">Beneficiry Details</a></li>
+                                      </ul>
+                                  </li>
+
+                              </ul>
+                          </li>
+
+                          <li class="has-submenu">
+                              <a href="#"><i class="ti-crown"></i>General Information</a>
+                              <ul class="submenu megamenu">
+                                  <li>
+                                      <ul>
+                                          <li><a href="#"  data-toggle="modal" data-target="#exampleModal">General Statistics</a></li>
+                                            <li><a href="#"  data-toggle="modal" data-target="#exampleModal2">Social Welfare</a></li>
+                                            <li><a href="#"  data-toggle="modal" data-target="#exampleModal3">Education</a></li>
+                                          <li><a href="#"  data-toggle="modal" data-target="#exampleModal4">Beneficiry Details</a></li>
+                                      </ul>
+                                  </li>
+
+                              </ul>
+                          </li>
+
+                          <li class="has-submenu">
+                              <a href="#"><i class="ti-bookmark-alt"></i>Components</a>
+                              <ul class="submenu">
+                                  <li class="has-submenu">
+                                      <a href="#">Forms</a>
+                                      <ul class="submenu">
+                                          <li><a href="form-elements.html">Form Elements</a></li>
+                                          <li><a href="form-validation.html">Form Validation</a></li>
+                                          <li><a href="form-advanced.html">Form Advanced</a></li>
+                                          <li><a href="form-editors.html">Form Editors</a></li>
+                                          <li><a href="form-uploads.html">Form File Upload</a></li>
+                                          <li><a href="form-mask.html">Form Mask</a></li>
+                                          <li><a href="form-summernote.html">Summernote</a></li>
+                                          <li><a href="form-xeditable.html">Form Xeditable</a></li>
+                                      </ul>
+                                  </li>
+                                  <li class="has-submenu">
+                                      <a href="#">Icons</a>
+                                      <ul class="submenu">
+                                          <li><a href="icons-material.html">Material Design</a></li>
+                                          <li><a href="icons-ion.html">Ion Icons</a></li>
+                                          <li><a href="icons-fontawesome.html">Font Awesome</a></li>
+                                          <li><a href="icons-themify.html">Themify Icons</a></li>
+                                          <li><a href="icons-dripicons.html">Dripicons</a></li>
+                                          <li><a href="icons-typicons.html">Typicons Icons</a></li>
+                                      </ul>
+                                  </li>
+                                  <li>
+                                      <a href="calendar.html">Calendar</a>
+                                  </li>
+                                  <li class="has-submenu">
+                                      <a href="#">Charts</a>
+                                      <ul class="submenu">
+                                          <li><a href="charts-morris.html">Morris Chart</a></li>
+                                          <li><a href="charts-chartist.html">Chartist Chart</a></li>
+                                          <li><a href="charts-chartjs.html">Chartjs Chart</a></li>
+                                          <li><a href="charts-flot.html">Flot Chart</a></li>
+                                          <li><a href="charts-c3.html">C3 Chart</a></li>
+                                          <li><a href="charts-other.html">Jquery Knob Chart</a></li>
+                                      </ul>
+                                  </li>
+                                  <li class="has-submenu">
+                                      <a href="#">Tables </a>
+                                      <ul class="submenu">
+                                          <li><a href="tables-basic.html">Basic Tables</a></li>
+                                          <li><a href="tables-datatable.html">Data Table</a></li>
+                                          <li><a href="tables-responsive.html">Responsive Table</a></li>
+                                          <li><a href="tables-editable.html">Editable Table</a></li>
+                                      </ul>
+                                  </li>
+                                  <li class="has-submenu">
+                                      <a href="#">Maps</a>
+                                      <ul class="submenu">
+                                          <li><a href="maps-google.html"> Google Map</a></li>
+                                          <li><a href="maps-vector.html"> Vector Map</a></li>
+                                      </ul>
+                                  </li>
+                              </ul>
+                          </li>
+
+                          <li class="has-submenu">
+                              <a href="#"><i class="ti-files"></i>Pages</a>
+                              <ul class="submenu megamenu">
+                                  <li>
+                                      <ul>
+                                          <li><a href="pages-timeline.html">Timeline</a></li>
+                                          <li><a href="pages-invoice.html">Invoice</a></li>
+                                          <li><a href="pages-directory.html">Directory</a></li>
+                                          <li><a href="pages-login.html">Login</a></li>
+                                          <li><a href="pages-register.html">Register</a></li>
+                                      </ul>
+                                  </li>
+                                  <li>
+                                      <ul>
+                                          <li><a href="pages-recoverpw.html">Recover Password</a></li>
+                                          <li><a href="pages-lock-screen.html">Lock Screen</a></li>
+                                          <li><a href="pages-blank.html">Blank Page</a></li>
+                                          <li><a href="pages-404.html">Error 404</a></li>
+                                          <li><a href="pages-500.html">Error 500</a></li>
+                                      </ul>
+                                  </li>
+                              </ul>
+                          </li>
+                          <li class="has-submenu" >  <a href="#"><i class="ti-user"></i>welcome , {{user}}</a>
+                            <ul class="submenu ">
+                                <li>
+                                    <ul>
+                                      <li><a href="/profile/">View Site</a></li>
+                                        <li><a href="/grama/profile/edit">Edit profile</a></li>
+                                        <li><a href="/grama/password_change">change Password</a></li>
+
+                                        <li><a href="/grama/logout">Logout</a></li>
+
+                                      </ul>
+                                </li>
+                            </ul>
+                          </li>
+
+                      </ul>
+                      <!-- End navigation menu -->
+                  </div> <!-- end #navigation -->
+              </div> <!-- end container -->
+          </div> <!-- end navbar-custom -->
+      </header>
+      <!-- End Navigation Bar-->
+
+
+      <div class="wrapper" style="margin-top:30px;">
+          <div class="container-fluid">
+
+              <!-- Page-Title -->
+              <div class="row">
+                  <div class="col-sm-12">
+                      <div class="page-title-box">
+                          <div class="btn-group pull-right">
+                              <ol class="breadcrumb hide-phone p-0 m-0">
+                                  <li class="breadcrumb-item"><a href="#">gramapanchayat</a></li>
+                                  <li class="breadcrumb-item active"> President </li>
+                              </ol>
+                          </div>
+                          <h4 class="page-title">Dashboard</h4>
+                      </div>
+                  </div>
+              </div>
+              <!-- end page title end breadcrumb -->
+
+            {% for detail in vdetails %}
+              <div class="row">
+                  <div class="col-md-6 col-xl-3">
+                      <div class="mini-stat clearfix bg-white">
+                          <span class="mini-stat-icon bg-light"><i class="mdi mdi-account-multiple text-danger"></i></span>
+                          <div class="mini-stat-info text-right text-muted">
+                              <span class="counter text-danger">{{ detail.total_men }}</span>
+                              Total Men
+                          </div>
+                          <!-- <p class="mb-0 m-t-20 text-muted">Total income: $22506 <span class="pull-right"><i class="fa fa-caret-up m-r-5"></i>10.25%</span></p> -->
+                      </div>
+                  </div>
+                  <div class="col-md-6 col-xl-3">
+                      <div class="mini-stat clearfix bg-success">
+                          <span class="mini-stat-icon bg-light"><i class="mdi mdi-human-female text-success"></i></span>
+                          <div class="mini-stat-info text-right text-white">
+                              <span class="counter text-white">{{ detail.total_ladies }}</span>
+                              Total Female
+                          </div>
+                          <!-- <p class="mb-0 m-t-20 text-light">Total income: $22506 <span class="pull-right"><i class="fa fa-caret-up m-r-5"></i>10.25%</span></p> -->
+                      </div>
+                  </div>
+                  <div class="col-md-6 col-xl-3">
+                      <div class="mini-stat clearfix bg-white">
+                          <span class="mini-stat-icon bg-light"><i class="mdi mdi-account-multiple-outline text-warning"></i></span>
+                          <div class="mini-stat-info text-right text-muted">
+                              <span class="counter text-warning">{{ detail.total_sc }}</span>
+                              Total SC
+                          </div>
+                          <!-- <p class="mb-0 m-t-20 text-muted">Total income: $22506 <span class="pull-right"><i class="fa fa-caret-up m-r-5"></i>10.25%</span></p> -->
+                      </div>
+                  </div>
+                  <div class="col-md-6 col-xl-3">
+                      <div class="mini-stat clearfix bg-info">
+                          <span class="mini-stat-icon bg-light"><i class="mdi mdi-account-multiple text-info"></i></span>
+                          <div class="mini-stat-info text-right text-muted">
+                              <span class="counter text-warning">{{ detail.total_st }}</span>
+                              Total ST
+                          </div>
+                          <!-- <p class="mb-0 m-t-20 text-light">Total income: $22506 <spanmdi mdi-wheelchair-accessibility class="pull-right"><i class="fa fa-caret-up m-r-5"></i>10.25%</span></p> -->
+                      </div>
+                  </div>
+
+                  <div class="offset-md-5 col-md-6 col-xl-4">
+                      <div class="mini-stat clearfix bg-white">
+                          <span class="mini-stat-icon bg-light"><i class="mdi mdi-account-multiple-outline text-warning"></i></span>
+                          <div class="mini-stat-info text-right text-muted">
+                              <span class="counter text-warning">{{ detail.total_Physical_Disabled }}</span>
+                                Total Physical Disabled
+                          </div>
+                          <!-- <p class="mb-0 m-t-20 text-muted">Total income: $22506 <span class="pull-right"><i class="fa fa-caret-up m-r-5"></i>10.25%</span></p> -->
+                      </div>
+                  </div>
+              </div>
+              {% endfor %}
+
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="card m-b-30">
+                          <div class="card-body">
+                              <h4 class="mt-0 header-title">Email Sent</h4>
+
+                              <ul class="list-inline widget-chart m-t-20 text-center">
+                                  <li>
+                                      <h4 class=""><b>3652</b></h4>
+                                      <p class="text-muted m-b-0">Marketplace</p>
+                                  </li>
+                                  <li>
+                                      <h4 class=""><b>5421</b></h4>
+                                      <p class="text-muted m-b-0">Last week</p>
+                                  </li>
+                                  <li>
+                                      <h4 class=""><b>9652</b></h4>
+                                      <p class="text-muted m-b-0">Last Month</p>
+                                  </li>
+                              </ul>
+
+                              <div id="morris-area-example" style="height: 300px"></div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="col-md-6">
+                      <div class="card m-b-30">
+                          <div class="card-body">
+                              <h4 class="mt-0 header-title">Revenue</h4>
+
+                              <ul class="list-inline widget-chart m-t-20 text-center">
+                                  <li>
+                                      <h4 class=""><b>5248</b></h4>
+                                      <p class="text-muted m-b-0">Marketplace</p>
+                                  </li>
+                                  <li>
+                                      <h4 class=""><b>321</b></h4>
+                                      <p class="text-muted m-b-0">Last week</p>
+                                  </li>
+                                  <li>
+                                      <h4 class=""><b>964</b></h4>
+                                      <p class="text-muted m-b-0">Last Month</p>
+                                  </li>
+                              </ul>
+
+                              <div id="morris-bar-example" style="height: 300px"></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="row">
+
+                  <div class="col-xl-8">
+                      <div class="card m-b-30">
+                          <div class="card-body">
+                              <h4 class="mt-0 m-b-15 header-title">Recent Candidates</h4>
+
+                              <div class="table-responsive">
+                                  <table class="table table-hover mb-0">
+                                      <thead>
+                                      <tr>
+                                          <th>Name</th>
+                                          <th>Position</th>
+                                          <th>Status</th>
+                                          <th>Age</th>
+                                          <th>Start date</th>
+                                          <th>Salary</th>
+                                      </tr>
+
+                                      </thead>
+                                      <tbody>
+                                      <tr>
+                                          <td>Tiger Nixon</td>
+                                          <td>System Architect</td>
+                                          <td><span class="badge badge-info">Active</span></td>
+                                          <td>61</td>
+                                          <td>2011/04/25</td>
+                                          <td>$320,800</td>
+                                      </tr>
+                                      <tr>
+                                          <td>Garrett Winters</td>
+                                          <td>Accountant</td>
+                                          <td><span class="badge badge-info">Active</span></td>
+                                          <td>63</td>
+                                          <td>2011/07/25</td>
+                                          <td>$170,750</td>
+                                      </tr>
+                                      <tr>
+                                          <td>Ashton Cox</td>
+                                          <td>Junior Technical Author</td>
+                                          <td><span class="badge badge-info">Active</span></td>
+                                          <td>66</td>
+                                          <td>2009/01/12</td>
+                                          <td>$86,000</td>
+                                      </tr>
+                                      <tr>
+                                          <td>Cedric Kelly</td>
+                                          <td>Senior Javascript Developer</td>
+                                          <td><span class="badge badge-default">Deactive</span></td>
+                                          <td>22</td>
+                                          <td>2012/03/29</td>
+                                          <td>$433,060</td>
+                                      </tr>
+                                      <tr>
+                                          <td>Airi Satou</td>
+                                          <td>Accountant</td>
+                                          <td><span class="badge badge-info">Active</span></td>
+                                          <td>33</td>
+                                          <td>2008/11/28</td>
+                                          <td>$162,700</td>
+                                      </tr>
+                                      <tr>
+                                          <td>Brielle Williamson</td>
+                                          <td>Integration Specialist</td>
+                                          <td><span class="badge badge-info">Active</span></td>
+                                          <td>61</td>
+                                          <td>2012/12/02</td>
+                                          <td>$372,000</td>
+                                      </tr>
+
+                                      </tbody>
+                                  </table>
+                              </div>
+
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="col-xl-4">
+                      <div class="card m-b-30">
+                          <div class="card-body">
+                              <h4 class="mt-0 header-title">Monthly Earnings</h4>
+
+                              <ul class="list-inline widget-chart m-t-20 text-center">
+                                  <li>
+                                      <h4 class=""><b>3654</b></h4>
+                                      <p class="text-muted m-b-0">Marketplace</p>
+                                  </li>
+                                  <li>
+                                      <h4 class=""><b>954</b></h4>
+                                      <p class="text-muted m-b-0">Last week</p>
+                                  </li>
+                                  <li>
+                                      <h4 class=""><b>8462</b></h4>
+                                      <p class="text-muted m-b-0">Last Month</p>
+                                  </li>
+                              </ul>
+
+                              <div id="morris-donut-example" style="height: 265px"></div>
+                          </div>
+                      </div>
+                  </div>
+
+              </div>
+              <!-- end row -->
+
+          </div> <!-- end container -->
+      </div>
+      <!-- end wrapper -->
+
+
+      <!-- Footer -->
+      <footer class="footer">
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="col-12">
+                      &copy; Copyright <strong>Government</strong> All Rights Reserved
+                  </div>
+              </div>
+          </div>
+      </footer>
+
+      <!-- End Footer -->
+
+      <!-- for project plan -->
+
+      <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+      <script type="text/javascript">
+        $(document).ready(function(){
+            $('input[type="radio"]').click(function(){
+                var inputValue = $(this).attr("value");
+                var targetBox = $("." + inputValue);
+                $(".box").not(targetBox).hide();
+                $(targetBox).show();
+            });
+        });
+
+
+</script>
+
+
+{% endblock %}

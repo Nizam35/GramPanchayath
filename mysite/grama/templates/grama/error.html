@@ -1,0 +1,53 @@
+
+{% extends 'base2.html'%}
+
+{% load staticfiles %}
+{% load static %}
+{% block head %}
+<title>error</title>
+<style media="screen">
+  h1{
+    font-size: 50px;
+    font-weight: 400;
+    color:#000;
+  }
+  p{
+    font-size: 35px;
+    font-weight: 400;
+    color:#000;
+
+  }
+</style>
+{% endblock %}
+{% block body %}
+<header id="header">
+  <div class="container-fluid">
+
+    <div id="logo" class="pull-left">
+      <h1><a href="/" class="scrollto">Grama Panchayth</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="#intro"><img src="img/logo.png" alt="" title="" /></a>-->
+    </div>
+
+    <nav id="nav-menu-container">
+      <ul class="nav-menu">
+        <li ><a href="/">Home</a></li>
+        <li class="menu-active"><a href="/tender">Tenders</a></li>
+
+        <li><a href="/grama/service">Services</a></li>
+        <!-- <li><a href="#team">Team</a></li> -->
+        <li><a href="/login"><i class=" fa fa-user fa-lg"></i>Sign in</a></li>
+        <li><a href="/register"><i class="fa fa-user fa-lg"></i>Sing UP</a></li>
+      </ul>
+    </nav><!-- #nav-menu-container -->
+  </div>
+</header><!-- #header -->
+<div class="container" style="margin-top:100px;">
+
+  <p class="text-warning">
+      the Email and username is already Exist
+  </p>
+
+
+</div>
+{% endblock %}

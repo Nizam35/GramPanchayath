@@ -1,0 +1,74 @@
+{% extends 'base2.html' %}
+{% load staticfiles %}
+{% load static %}
+{% block head %}
+<title>Tender</title>
+<style media="screen" type="text/css">
+  h1{
+    font-size: 30px !important;
+    font-weight: bold;
+  }
+  p{
+    font-size: 15px !important;
+    font-weight: 400;
+  }
+  p span{
+  color:#18d36e;
+  }
+
+</style>
+{% endblock %}
+
+{% block body %}
+<header id="header">
+  <div class="container-fluid">
+
+    <div id="logo" class="pull-left">
+      <h1><a href="/" class="scrollto"><img width="50px" height="50px"src="{% static 'gramaimg/logo.png' %}" alt=""></a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="#intro"><img src="img/logo.png" alt="" title="" /></a>-->
+    </div>
+
+    <nav id="nav-menu-container">
+      <ul class="nav-menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="/grama/service">Services</a></li>
+          <li class="menu-active"><a href="/grama/tender">Tender</a></li>
+        <li><a href="/login"><i class=" fa fa-user fa-lg"></i> Login</a></li>
+        <li><a href="/register"><i class="fa fa-user fa-lg"></i> Sing UP</a></li>
+      </ul>
+    </nav>
+</header><!-- #header -->
+<div class="container " style="margin-top:100px;">
+    <h1><a href="#">Tender Details</a></h1>
+  <div class="card">
+
+      {% for post in posts %}
+        <div class="card-body">
+        <p><span>ID:</span>&nbsp;{{ post.id }}</p>
+
+        <p><span>Created Date:</span><br>{{ post.created_date }}</p>
+        <p><span>text:</span><br>{{ post.text }}</p>
+        <p><span>Due date:</span> <br>{{ post.Due_date }}</p>
+        <p><span>EMD :</span><br>{{ post.EMD}}</p>
+        <p><span>DOC Fee: </span><br>{{ post.DOC_Fee }}</p>
+        <p><span>Notice Type :</span><br>{{ post.Notice_Type}}</p>
+        <p><span>Authority Type: </span><br>{{ post.Authority_Type }}</p>
+        <p><span>EMD :</span><br>{{ post.EMD}}</p>
+        <p><span>Product Services :</span><br>{{ post.Product_Services}}</p>
+        <p><span>Doc Sale Starts:</span><br> {{ post.Doc_Sale_Starts }}</p>
+        <p><span>Doc Sale Ends :</span><br>{{ post.Doc_Sale_Ends}}</p>
+        <p><span>Doc Submit Before :</span><br>{{ post.Doc_Submit_Before|linebreaksbr}}</p>
+
+        <a style="float:right;display:block;width:270px;"class="btn btn-info btn-lg" href="/forms">Apply</a>
+
+      </div>
+      <hr style="font-size:35px!important;color:#000;background-color:#000!important;font-weight:bold;">
+
+
+        {% endfor %}
+
+  </div>
+</div>
+<div style="height:100px;"></div>
+{% endblock %}

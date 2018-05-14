@@ -1,0 +1,53 @@
+
+{% extends 'base2.html'%}
+
+{% block head %}
+<title>Profile</title>
+<style media="screen">
+  h1{
+    font-size: 30px;
+    font-weight: bolder;
+    font-family: inherit;
+    color: #444;
+  }
+  th,td{
+    font-size: 20px;
+    font-weight:400;
+    font-family: inherit;
+    color: #444;
+  }
+</style>
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <h1>Staff Profile</h1>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+        <th>Username</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ user }}</td>
+          <td>{{ user.first_name }}</td>
+          <td>{{ user.last_name }}</td>
+          <td>{{ user.email }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+
+    {% if user.userprofile.image %}
+    <img src="{{ user.userprofile.image.url }}" width="240">
+    {% endif %}
+</div>
+
+{% endblock %}
+8

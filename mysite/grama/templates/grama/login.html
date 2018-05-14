@@ -1,0 +1,254 @@
+
+
+{% extends 'base2.html'%}
+{% load staticfiles %}
+{% load static %}
+{% block head %}<title>Login</title>
+<style type="text/css">
+ #reg{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+ }
+ body{
+ background: rgba(192, 227, 187,0.9)!important;
+ }
+
+ form{
+   padding: 30px;
+   color:#000;
+   background:#fff;
+   width:430px;
+   height: auto;
+ }
+ label{
+   display: none;
+   width:120px;
+   font-size: 20px;
+   font-weight: normal;
+ }
+ input{
+   padding:60 0px ;
+   display:block;
+  width:100%;
+  border-radius: 3px;
+  font: 400 13.3333px Arial;
+  padding:1rem;
+ }
+ input:focus{
+   border:1px solid #007bff;
+ }
+
+ span{
+   font-size: 20px;
+ }
+button{
+  padding:1rem;
+}
+.errorlist{
+  color:red;
+  list-style: none;
+  position: relative;
+
+}
+.errorlist  li {
+  font-size:14px;
+  float: right;
+  position:absolute;
+  top:40px;
+  right: 0;
+}
+@media only screen and (max-width:620px){
+  .helptext{
+    display:none;
+  }
+  form{
+    padding: 30px;
+    color:#000;
+    background-color:rgba(255,255,255,0.9);
+    width:100%;
+
+
+  }
+  button{
+    /* margin-left:20%;
+    display:block;
+    text-align:center;
+    padding:20 30px;
+    width:60%;
+
+    font-size:20px;
+    font-weight:400; */
+  }
+}
+
+</style>
+
+{% endblock %}
+{% block body %}
+
+
+
+    <!--==========================
+    Header
+  ============================-->
+
+  <!--==========================-->
+
+
+
+<header id="header">
+  <div class="container-fluid">
+
+    <div id="logo" class="pull-left">
+      <h1><a href="/" class="scrollto"><img width="50px" height="50px"src="/static/gramaimg/logo.png" alt=""></a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="#intro"><img src="img/logo.png" alt="" title="" /></a>-->
+    </div>
+
+    <nav id="nav-menu-container">
+      <ul class="nav-menu">
+        <li ><a href="/">Home</a></li>
+        <li><a href="/grama/service">Services</a></li>
+        <li  class="menu-active"><a href="/login"><i class=" fa fa-user fa-lg"></i>Login</a></li>
+        <!-- <li><a href="/register"><i class="fa fa-user fa-lg"></i>Sign UP</a></li> -->
+      </ul>
+    </nav><!-- #nav-menu-container -->
+  </div>
+</header><!-- #header -->
+
+
+<div class="container " style="margin-top:130px;">
+
+    <!-- <h1 style="margin-top:20px; font-size:30px;color:#fff;padding: 30px;font-weight:bold;text-align:center; background-color:#417690;">Sign in ,Here</h1> -->
+    <!-- <form role="form" class="form-horizontal" method="post">
+      <input type='hidden' name='csrfmiddlewaretoken' value='89GTVQ8VJHgYDYXugs51zwtm0iHJ4Vt7' />
+        <div class="form-group">
+
+
+              <div class="input-group">
+                <span class="input-group-addon" style="background-color:#b77b48; color:white"><span class="glyphicon glyphicon-user"></span></span>
+                <input class="form-control" id="id_username" maxlength="10" name="username" value="None" type="text" />
+
+              </div>
+
+
+              <div class="input-group">
+                <span class="input-group-addon" style="background-color:#b77b48; color:white"><span class="glyphicon glyphicon-user"></span></span>
+                <input class="form-control" id="id_password" maxlength="10" name="password" value="None" type="text" />
+
+              </div>
+
+        </div>
+     <p><label for="id_username">Username:</label> <input id="id_username" maxlength="254" name="username" type="text" /></p>
+<p><label for="id_password">Password:</label> <input id="id_password" name="password" type="password" /></p>
+
+    </form> -->
+    <div id="reg">
+
+      <!-- <form class="form-horizontal m-t-20" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="form-group text-center row m-t-20">
+            <div class="col-12">
+                <button class="btn btn-info btn-block waves-effect waves-light" type="submit">Log In</button>
+            </div>
+        </div>
+             <button type="submit" class="btn btn-primary btn-lg" style="font-size:20px;width:60%;margin-left:20%;display:block;text-align:center;padding:20 30px;">Log in</button> -->
+      <!-- </form>  -->
+      <form class="form-horizontal m-t-20" method="post">
+
+
+        <a href="/" class="scrollto" style="display:block;text-align:center;padding-bottom:3rem;"><img width="30px" height="30px"src="/static/gramaimg/logo.png" alt=""></a>
+        <h4 style="display:block;text-align:center;font-weight:bold;font-size:2rem;">Sign In</h4>
+        {% csrf_token %}
+          {{ form.as_p }}
+
+          <div class="form-group text-center row m-t-20">
+              <div class="col-12">
+                  <button class="btn btn-info btn-block waves-effect waves-light" style="font-size:1.4rem;padding:0.7rem;"type="submit">Log In</button>
+              </div>
+          </div>
+
+          <div class="form-group m-t-10 mb-0 row">
+              <div class="col-sm-7 m-t-20">
+                  <a href="/password_reset/" class="text-muted"style="font-size:1.4rem;"><i class="fa fa-lock"></i> Forgot your password?</a>
+              </div>
+              <div class="col-sm-5 m-t-20">
+                  <a href="/register" class="text-muted"style="font-size:1.4rem;"><i class="fa fa-user-circle"></i> Create an account</a>
+              </div>
+          </div>
+      </form>
+
+    </div>
+      <!-- <h2 style="font-weight:500;font-size:16px;display:block;text-align:center;padding-top:10px;"><a style="color:red;" target="_blank" href="/password_reset/">Forgot Password ?</a></h2> -->
+
+
+
+
+
+
+
+</div>
+<div style="min-height:100px;"></div>
+<!-- Footer -->
+<footer id="footer">
+  <div class="footer-top">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-3 col-md-6 footer-info">
+          <h3>Grama Panchayath</h3>
+          <p>  </div>
+
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><i class="ion-ios-arrow-right"></i> <a href="/">Home</a></li>
+            <li><i class="ion-ios-arrow-right"></i> <a href="/">About us</a></li>
+            <li><i class="ion-ios-arrow-right"></i> <a href="/grama/service">Services</a></li>
+
+
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-contact">
+          <h4>Contact Us</h4>
+          <p>
+            Gram panchayth <br>
+            Innoli,574531<br>
+            Mangalore<br>
+            <strong>Phone:</strong> +1 9108776988<br>
+            <strong>Email:</strong> grama@example.com<br>
+          </p>
+
+          <div class="social-links">
+            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+            <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+            <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+            <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+          </div>
+
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="copyright">
+      &copy; Copyright <strong>Government</strong>. All Rights Reserved
+    </div>
+
+  </div>
+</footer><!-- #footer -->
+<script type="text/javascript">
+  document.getElementById("id_username").setAttribute("placeholder", "Username");
+  document.getElementById("id_password").setAttribute("placeholder", "Password");
+
+
+
+</script>
+{% endblock %}
