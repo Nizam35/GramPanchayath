@@ -1,0 +1,277 @@
+.pageAnimation-Pagination .pageActive-Pagination .layersWrapper-PageCanvas {
+  transform: translate3d(0,0,0);
+}
+
+.pageAnimation-Pagination .pageActive-Pagination .content-Content {
+  transform: translate3d(0,0,0);
+}
+
+.pageAnimation-Pagination .locker-Pagination {
+  transform: translate3d(0,0,0);
+}
+
+/**
+ * Гост не может получить ширину и высоту
+ * из-за того, что в момент вызова RulerView::componentDidMount
+ * после переключения страницы, он невидим (display: none)
+ */
+html.os-mobile .pageAnimation-Pagination .elementGhost-ElementGhost {
+  display: none;
+}
+
+.pageScaling-Pagination .pageHidden-Pagination {
+  visibility: hidden;
+}
+
+/* JSF-1668 */
+.jsf-watermark-settings-panel__body {
+  overflow: visible;
+}
+
+/*
+ * Constructor tooltip
+ */
+.jsf-watermark-settings-panel__tooltip-info .tooltipster-wrapper {
+  max-width: 200px;
+  transition-duration: 350ms;
+  animation-duration: 350ms;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+
+  opacity: 0;
+  pointer-events: none;
+}
+
+.jsf-watermark-settings-panel__tooltip-info:hover .tooltipster-wrapper {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.jsf-watermark-settings-panel__tooltip-info .tooltipster-wrapper .tooltipster-arrow-outer {
+  margin-top: -1px;
+  border-color: rgb(204, 204, 204);
+}
+
+.jsf-watermark-settings-panel__tooltip-info .tooltipster-wrapper .tooltipster-arrow-inner {
+  border-color: rgb(255, 255, 255);
+}
+
+
+.test-link-widget .test-link-widget__input {
+  -webkit-user-select: auto;
+  -moz-user-select: auto;
+  -ms-user-select: auto;
+  user-select: auto;
+}
+
+/* From HeaderDoneView.js */
+.jsf-g-ibtn-separation span { display: none }
+
+.jsf-wizard { max-width: 700px; }
+.jsf-wizard__calendar { min-width: 110px; max-width: 300px; }
+
+
+/* From SearchHighlighter */
+.searchHighlighter {
+  position: absolute;
+  white-space: pre;
+  transform-origin: 0% 0%;
+  color: transparent;
+  z-index: 1;
+  line-height: 1.21;
+}
+
+.searchHighlighter.fakeEditHighlighter {
+  background-color: rgba(181, 32, 201, 0.3);
+  cursor: pointer
+}
+
+.searchHighlighter.fakeEditHighlighter:hover {
+  background-color: rgba(181, 32, 201, 0.7);
+} 
+
+.searchHighlighter.fakeEditHighlighter .fakeEditHighlighterDeleteBtn {
+  display: none;
+}
+
+.searchHighlighter.fakeEditHighlighter:hover .fakeEditHighlighterDeleteBtn {
+  display: block;
+}
+
+.searchHighlighter.text {
+  top: 0px;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+.searchHighlighter.cells {
+  padding-left: 0px;
+  padding-right: 0px;
+
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+
+.searchHighlighterInner {
+  background-color: rgba(0, 255, 0, 0.3);
+}
+
+.searchHighlighterInner.active {
+  background-color: rgba(255, 0, 0, 0.3);
+}
+
+.pdfTextLayer {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+} 
+
+.searchHighlighterInner.cells {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+/* ToolbarSearch */
+.ToolbarSearch-boxStyle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.ToolbarSearch-inputStyle {
+  width: 300px;
+  min-height: 25px;
+  margin-right: 10px;
+}
+
+.ToolbarSearch-btnStyle {
+  min-width: 30px;
+  min-height: 30px;
+  margin-right: 1px;
+  font-size: 20px;
+  cursor: pointer;
+  display: inline-block;
+  border: 1px solid darkgray;
+  border-radius: 3px;
+}
+
+.ToolbarSearch-resultsLabel {
+  font-size: 20px;
+} 
+
+.eraseDeleteBtnWrapper-EraseDeleteBtn {
+  z-index: auto !important; /* override styles from cdn.pdffiller.com */
+}
+
+.pdfTextLayer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.invalid-paConstructor-input {
+  border-color: red !important;
+}
+
+.jsf-right-sb__wrapper {
+  max-height: 100%;
+}
+
+.bates-text-input {
+  margin-bottom: 10px;
+}
+
+.pageAttributesLayer-PageAttributesLayer.constructor-active {
+  pointer-events: auto;
+  z-index: 10;
+}
+/* Ask Kiev to fix */
+/* <Redlining> */
+.comment-mark {
+  position: absolute !important; /* replace relative to allow draw on top of each other */
+  background: #2196f3;
+}
+.comment-mark__track {
+  z-index: 0; /* do not draw over tools */
+}
+.comment-mark span {
+  cursor: inherit !important;
+}
+.comment-button[disabled] {
+  opacity: 0.3; /* disable save button */
+}
+.comment-control-list__item.is-dropdown-container {
+  pointer-events: all !important; /* ... clickable on unselected */
+}
+.comments-bar__wrapper {
+  width: 365px;
+  position: absolute;
+  top: 0;
+  right: -325px;
+  z-index: 0; /* to not draw over scrollbar */
+  overflow: hidden;
+  height: 100%;
+}
+.comments-bar {
+  margin-left: 20px;
+  height: 100%
+}
+.pagePinch-PagePinch {
+  position: relative; /* to get comments-bar pos relative to pagePinch */
+}
+.comments-bar__header {
+  position: absolute; /* toolbar relative to pagePinch */
+  transition: top 0.3s ease-out;
+  padding: 0 20px 0;
+  width: 345px;
+}
+.comments-bar__body {
+  overflow: initial !important; /* dont hide comments that flew out of bounds */
+}
+.comment {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 20px 0;
+  transition: top 0.3s, box-shadow 0.3s, transform 0.3s !important;
+  transition-timing-function: ease-out;
+}
+.comment-body {
+  white-space: pre-line; /* break new line */
+  word-wrap: break-word; /* wrap words */
+}
+.comment-replies {
+  max-height: 320px;
+  position: relative;
+}
+.comment-replies .ps-scrollbar-y-rail {
+  background: #fff;
+}
+.comment-replies .ps-scrollbar-y {
+  width: 5px !important;
+}
+.comment.is-selected {
+  z-index: 4;
+}
+.create-comment {
+  transition: none !important; /* old transition is not flash alike */
+}
+.create-comment__body {
+  transition: none !important; /* old transition is not flash alike */
+}
+/* </Redlining> */
+
+/*
+ * 10% left tooltip is bad for our case, use absolute value
+ */
+.simple-tooltip--arrow-top-left20px::before, .simple-tooltip--arrow-top-left20px::after {
+  left: 20px; 
+}

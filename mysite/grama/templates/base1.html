@@ -51,8 +51,8 @@
 
     {% block body %}
     {% endblock %}
-  -->
 
+    {% block script %}
          <!-- jQuery  -->
          <script src="{% static 'dash/assets/js/jquery.min.js' %}"></script>
          <script src="{% static 'dash/assets/js/popper.min.js' %}"></script>
@@ -74,6 +74,9 @@
 
          <!-- App js -->
          <script src="{% static 'dash/assets/js/app.js' %}"></script>
+
+         <!-- google maps api -->
+      {% endblock%}
   </body>
   <!-- JavaScript Libraries
 

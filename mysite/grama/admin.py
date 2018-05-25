@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from .models import (
-    UserProfile, Post , Comment, Tender,BirthCertificate,VDetails
+    UserProfile, Post , Comment, Tender,BirthCertificate,VDetails,Feedback, DeathCertificate
 )
 
 # Register your models here.
@@ -10,7 +10,9 @@ admin.site.register(Post)
 admin.site.register(Comment)
 admin.site.register(VDetails)
 admin.site.register(Tender)
+admin.site.register(Feedback)
 admin.site.register(BirthCertificate)
+admin.site.register(DeathCertificate)
 # admin.site.register(OfficeEmployee)
 from django.contrib import admin
 from django.contrib.auth.models import User

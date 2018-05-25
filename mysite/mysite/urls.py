@@ -10,12 +10,12 @@ from django.views.generic.base import TemplateView
 
 
 
-
 urlpatterns = [
     # url('^test/', include('django.contrib.auth.urls')),
     url(r'^',include('grama.urls')),
     url(r'^login/$', views.login_redirect, name='login_redirect'),
     url(r'admin/', admin.site.urls),
+    url(r'^admin/login/$', views.login_redirect,name='login_redirect'),
     url(r'^grama/', include('grama.urls')),
     # url(r'^blog/', include('blog.urls')),
     # url(r'^grama/',include('django.contrib.auth.urls')),

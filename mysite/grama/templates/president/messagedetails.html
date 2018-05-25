@@ -1,0 +1,159 @@
+{% extends 'base2.html' %}
+{% load staticfiles %}
+{% load static %}
+{% block head %}
+<title>Inbox</title>
+<style media="screen" type="text/css">
+  h1{
+    font-size: 30px !important;
+    font-weight: bold;
+  }
+  p{
+    font-size: 15px !important;
+    font-weight: 400;
+  }
+  p span{
+  color:#18d36e;
+  }
+
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content" >
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel" style="font-size:22px;">Send</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form role="form" class="form-horizontal">
+
+              <div class="form-group">
+                <label class="col-sm-2" for="inputTo">To</label>
+                <div class="col-sm-10"><input class="form-control" id="inputTo" placeholder="comma separated list of recipients" type="email"></div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2" for="inputSubject">Subject</label>
+                <div class="col-sm-10"><input class="form-control" id="inputSubject" placeholder="subject" type="text"></div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-12" for="inputBody">Message</label>
+                <div class="col-sm-12"><textarea class="form-control" id="inputBody" rows="18"></textarea></div>
+              </div>
+          </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-warning pull-left">Save Draft</button>
+        <button type="button" class="btn btn-warning pull-right" onClick="window.location.href=window.location.href">Send</button>
+
+    <!-- <i class="glyphicon glyphicon-adjust"></i><img src="//placehold.it/50x50">btn btn-primary "&gt;Send <i class="fa fa-arrow-circle-right fa-lg"></i> -->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /.modal compose message -->
+    <!-- <div class="modal show" id="modalCompose">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4 class="modal-title">Compose Message</h4>
+          </div>
+          <div class="modal-body">
+            <form role="form" class="form-horizontal">
+                <div class="form-group">
+                  <label class="col-sm-2" for="inputTo">To</label>
+                  <div class="col-sm-10"><input class="form-control" id="inputTo" placeholder="comma separated list of recipients" type="email"></div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2" for="inputSubject">Subject</label>
+                  <div class="col-sm-10"><input class="form-control" id="inputSubject" placeholder="subject" type="text"></div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-12" for="inputBody">Message</label>
+                  <div class="col-sm-12"><textarea class="form-control" id="inputBody" rows="18"></textarea></div>
+                </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-warning pull-left">Save Draft</button>
+          </div>
+          </div><a href="#" class="btn btn-default" id="openBtn">Open modal</a>
+
+
+<i class="glyphicon glyphicon-adjust"></i><img src="//placehold.it/50x50">btn btn-primary "&gt;Send <i class="fa fa-arrow-circle-right fa-lg"></i>
+
+          </div>
+        </div><! /.modal-content
+      </div>< /.modal-dialog
+    </div> -->
+<header id="header">
+  <div class="container-fluid">
+
+    <div id="logo" class="pull-left">
+      <h1><a href="/" class="scrollto"><img width="50px" height="50px"src="{% static 'gramaimg/logo.png' %}" alt=""></a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="#intro"><img src="img/logo.png" alt="" title="" /></a>-->
+    </div>
+
+    <nav id="nav-menu-container">
+      <ul class="nav-menu">
+        <li class="menu-active">
+            <a href="#"><i class="fa fa-inbox"></i> Inbox </a>
+
+        </li>
+        <li><a href="/profile/"><i style="color:#fff;"class="fa fa-home"></i>&nbsp;home</a></li>
+      </ul>
+    </nav>
+</header>
+<div class="container " style="margin-top:100px;">
+    <h1><a href="#">Inbox</a></h1>
+  <div class="card">
+
+      {% for feed in feedback %}
+        <div class="card-body">
+        <p><span>ID:</span>&nbsp;{{ feed.id }}</p>
+
+        <p><span>name</span><br>{{ feed.name}}</p>
+        <p><span>subject:</span><br>{{ feed.subject }}</p>
+        <p><span>text:</span> <br>{{ feed.text }}</p>
+        <p><span>phone :</span><br>{{ feed.phone_number}}</p>
+        <p><span>Email: </span><br>{{ feed.email }}</p>
+        <p><span>Date :</span><br>{{ feed.issue_Date}}</p>
+
+        <a href="#"  data-toggle="modal" data-target="#exampleModal" style="float:right;display:block;width:270px;" class="btn btn-info btn-lg">Compose</a>
+      </div>
+      <hr style="font-size:35px!important;color:#000;background-color:#000!important;font-weight:bold;">
+
+
+        {% endfor %}
+
+  </div>
+</div>
+<div style="height:100px;"></div>
+
+<!--Footer -->
+ <footer id="footer">
+
+  <div class="container">
+    <div class="copyright">
+    Copyright   &copy; <strong>Government</strong> All Rights Reserved
+    </div>
+
+  </div>
+</footer><!-- #footer-->
+
+{% endblock %}
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+<script type="text/javascript">
+$('#openBtn').click(function(){
+$('#myModal').modal({show:true})
+});
+</script>

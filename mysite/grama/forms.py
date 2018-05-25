@@ -10,7 +10,8 @@ from django.utils.translation import ugettext_lazy as _
 from . import validators
 from .models import UserProfile
 from .models import Tender
-from .models import BirthCertificate
+from .models import Feedback
+from .models import BirthCertificate ,DeathCertificate
 
 class CustomUserCreationForm(forms.Form):
     username = forms.CharField(label='Username', min_length=4, max_length=150)
@@ -144,6 +145,10 @@ class TenderForm(forms.ModelForm):
 
 # date of Birth submission forms
 class BirthCertificateForm(forms.ModelForm):
+    # Options = [
+    #     ('1', 'Hello'),
+    #     ('2', 'World'),
+    #   ]
     # title = forms.CharField(max_length=100)
     # title = forms.ChoiceField(label="select",
     #                             initial='mr',
@@ -161,7 +166,6 @@ class BirthCertificateForm(forms.ModelForm):
                 'id',
                 'issue_Date',
             	'id_Card_No',
-
             	'name',
                 'surname',
             	'address',
@@ -173,5 +177,70 @@ class BirthCertificateForm(forms.ModelForm):
                 'fatherName',
                 'motherName',
                 'ID_card_no_child'
+
+            )
+
+# date of Death submission forms
+class DeathCertificateForm(forms.ModelForm):
+    Options = [
+        ('1', 'Male'),
+        ('2', 'Female'),
+      ]
+    # title = forms.CharField(max_length=100)
+    # title = forms.ChoiceField(label="select",
+    #                             initial='mr',
+    #                             widget=forms.Select(),
+    #                             required=True)
+    # message = forms.CharField()
+    # sender = forms.EmailField()
+
+
+
+
+    class Meta:
+        model = DeathCertificate
+        fields = (
+
+                'id',
+                'issue_Date',
+            	'name',
+                'surname',
+            	'address',
+                'phone_number',
+                'Date_of_Death',
+                'Place_of_Death',
+                'Place_Of_Birth',
+                'Date_Of_Birth',
+                'fatherName',
+                'motherName',
+                'adharcard_no'
+
+            )
+
+# FeedbackForm
+
+class FeedbackForm(forms.ModelForm):
+    # title = forms.CharField(max_length=100)
+    # title = forms.ChoiceField(label="select",
+    #                             initial='mr',
+    #                             widget=forms.Select(),
+    #                             required=True)
+    # message = forms.CharField()
+    # sender = forms.EmailField()
+
+
+
+
+    class Meta:
+        model = Feedback
+        fields = (
+                'id',
+                'name',
+                'subject',
+            	'text',
+            	'phone_number',
+            	'email',
+                'issue_Date'
+
 
             )

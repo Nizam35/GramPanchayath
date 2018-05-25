@@ -1,0 +1,76 @@
+.devBuildLabel___AXa10 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: #DDD;
+  font-size: .7em;
+  opacity: 0.5;
+  padding: 3px;
+  pointer-events: none;
+}
+
+@media screen and (max-width: 768px) {
+  .devBuildLabel___AXa10 { bottom: 45px; }
+}
+
+.devBuildLine___31-an {
+  display: block;
+  text-align: right;
+}
+
+.devBuildHidden___1tHH_ {
+  opacity: 0;
+}
+.interfaceLocker___1Fwrf {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: transparent;
+  z-index: 2;
+}
+.main___3K9dB {
+  height: 0;
+}
+.userSelectStyle___1H2ch * {
+  -webkit-user-select: text;
+          user-select: text;
+  -ms-user-select: text;
+  -moz-user-select: text;
+}
+.dragHandler___sl4n_ {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 32px;
+  height: 65px;
+  cursor: move;
+}
+
+.minDragHandler___1bD8z {
+  height: auto;
+  right: 0;
+  bottom: 0;
+}
+
+html[class~="isDesktop"] .wizardTodoPopupView___27HAW {
+  left: auto;
+  right: 10px;
+  top: 61px
+}
+.wizardPointer___3fvnu {
+  position: absolute;
+  left: calc(100% + 40px);
+  top: 50%;
+  animation-name: fadein___ss7YQ;
+  animation-duration: 350ms;
+  -ms-touch-action: none;
+      touch-action: none;
+  visibility: visible;
+}
+
+@keyframes fadein___ss7YQ {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+/*# sourceMappingURL=main-1b364628e5b323caf7e868b0c339b83d.css.map*/

@@ -1,0 +1,331 @@
+
+{% extends 'base1.html'%}
+{% load static %}
+{% load staticfiles %}
+{% block head %}
+
+<title>profile</title>
+<style media="screen">
+  li >a>span{
+    font-size: 15px;
+  }
+  .mdi{
+    font-size: 22px;
+  }
+  .card{
+    height:370px !important;
+    box-shadow: 10px 10px 6px 0px rgba(0,0,0,0.75);
+  }
+
+</style>
+{% endblock %}
+<!-- Mirrored from themesdesign.in/upcube/layouts/vertical/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 05 May 2018 04:02:00 GMT -->
+
+
+
+
+
+
+
+        {% block body %}
+        <!-- Loader -->
+        <div id="preloader"><div id="status"><div class="spinner"></div></div></div>
+
+        <!-- Begin page -->
+        <div id="wrapper">
+
+            <!-- ========== Left Sidebar Start ========== -->
+            <div class="left side-menu">
+                <button type="button" class="button-menu-mobile button-menu-mobile-topbar open-left waves-effect">
+                    <i class="ion-close"></i>
+                </button>
+
+                <!-- LOGO -->
+                <div class="topbar-left">
+                    <div class="text-center">
+                        <!--<a href="index.html" class="logo">Admiry</a>-->
+                        <a href="index.html" class="logo"><img src="{% static 'gramaimg/logo.png' %}" height="44" alt="logo"></a>
+                    </div>
+                </div>
+
+                <div class="sidebar-inner slimscrollleft">
+
+                    <div class="user-details">
+                        <div class="text-center">
+
+                        </div>
+                        <div class="user-info">
+                            <h4 class="font-16">Welcome , {{user}}</h4>
+                            <span class="text-muted user-status"><i class="fa fa-dot-circle-o text-success"></i> Online</span>
+                        </div>
+                    </div>
+
+                    <div id="sidebar-menu">
+                        <ul>
+
+
+                            <li>
+                                <a href="/grama/profile/" class="waves-effect">
+                                    <i class="ti-dashboard"></i>
+                                    <span> Dashboard</span>
+                                </a>
+
+                            </li>
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i  class="dripicons-gear text-muted"></i> <span>Profile </span> <span class="pull-right"></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="/grama/profile/edit"><i class="mdi mdi-account mdi-20px"></i><span>Edit profile</span></a></li>
+                                    <li><a href="/grama/password_change"><i class="mdi mdi-account-key mdi-20px"></i><span>change Password</span></a></li>
+
+                                    <li><a href="/grama/logout"><i class="mdi mdi-exit-to-app mdi-20px"></i><span>Logout</span></a></li>
+
+                                    <!-- <li><a href="advanced-animation.html">Animation</a></li>
+                                    <li><a href="advanced-highlight.html">Highlight</a></li>
+                                    <li><a href="advanced-rating.html">Rating</a></li>
+                                    <li><a href="advanced-nestable.html">Nestable</a></li>
+                                    <li><a href="advanced-alertify.html">Alertify</a></li>
+                                    <li><a href="advanced-rangeslider.html">Range Slider</a></li>
+                                    <li><a href="advanced-sessiontimeout.html">Session Timeout</a></li> -->
+                                </ul>
+                            </li>
+
+
+
+
+                            <li>
+                                <a href="/grama/feedback" class="waves-effect"><i class="ti-email"></i> <span> Feedback </span></a>
+
+                            </li>
+
+                            <li>
+                                <a href="/grama/download" class="waves-effect"><i class="ti-download"></i> <span> Download</span></a>
+
+                            </li>
+
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="ti-pencil-alt"></i><span> Forms </span> </a>
+                                <ul class="list-unstyled">
+                                  <li><a href="/grama/bforms">BirthCertificate</a></li>
+                                  <li><a href="/grama/dforms">DeathCertificate</a></li>
+                                    <!-- <li><a href="form-elements.html">Form Elements</a></li>
+                                    <li><a href="form-validation.html">Form Validation</a></li>
+                                    <li><a href="form-advanced.html">Form Advanced</a></li>
+                                    <li><a href="form-editors.html">Form Editors</a></li>
+                                    <li><a href="form-uploads.html">Form File Upload</a></li>
+                                    <li><a href="form-mask.html">Form Mask</a></li>
+                                    <li><a href="form-summernote.html">Summernote</a></li>
+                                    <li><a href="form-xeditable.html">Form Xeditable</a></li> -->
+                                </ul>
+                            </li>
+
+
+
+
+
+                            <li >
+                                <a href="/gmaps/" class="waves-effect"><i class="ti-map"></i><span> Maps </span> </a>
+                                <!-- <ul class="list-unstyled">
+                                    <li><a href="/gmaps/"> Google Map</a></li>
+                                </ul> -->
+                            </li>
+
+
+
+
+                        </ul>
+                    </div>
+                    <div class="clearfix"></div>
+                </div> <!-- end sidebarinner -->
+            </div>
+            <!-- Left Sidebar End -->
+
+            <!-- Start right Content here -->
+
+            <div class="content-page">
+                <!-- Start content -->
+                <div class="content">
+
+                    <!-- Top Bar Start -->
+                    <div class="topbar">
+
+                        <nav class="navbar-custom">
+
+                            <ul class="list-inline float-right mb-0">
+
+
+
+                            </ul>
+
+                            <ul class="list-inline menu-left mb-0">
+                                <li class="list-inline-item">
+                                    <button type="button" class="button-menu-mobile open-left waves-effect">
+                                        <i class="ion-navicon"></i>
+                                    </button>
+                                </li>
+                                <!-- <li class="hide-phone list-inline-item app-search">
+                                    <h3 class="page-title">Dashboard</h3>
+                                </li> -->
+                                <li class="hide-phone list-inline-item app-search">
+                                    <h3 class="page-title">Download</h3>
+                                </li>
+                            </ul>
+
+                            <div class="clearfix"></div>
+
+                        </nav>
+
+                    </div>
+                    <!-- Top Bar End -->
+
+                    <div class="page-content-wrapper ">
+
+                        <div class="container-fluid">
+                                <div class="row">
+
+                                  <div class="col-md-6 col-lg-6 col-xl-4">
+
+                                      <!-- Simple card -->
+                                      <div class="card m-b-30">
+                                          <img class="card-img-top img-fluid" src="{% static 'dash/assets/images/big/img-1.jpg'%}" alt="Card image cap">
+                                          <div class="card-body">
+                                              <h4 class="card-title font-20 mt-0">Birth Certificate</h4>
+                                              <p class="card-text">Download the pdf file for the birth certificate.</p>
+                                              <a href="{% static 'dash/assets/images/pdf/birth.pdf'%}" target="_blank" class="btn btn-primary waves-effect waves-light">Download</a>
+                                          </div>
+                                      </div>
+
+                                  </div><!-- end col -->
+                                  <div class="col-md-6 col-lg-6 col-xl-4">
+
+                                      <!-- Simple card -->
+                                      <div class="card m-b-30" style="height:350px;">
+                                          <img class="card-img-top img-fluid" src="{% static 'dash/assets/images/big/img-2.jpg'%}" alt="Card image cap" style="height:210px;">
+                                          <div class="card-body">
+                                              <h4 class="card-title font-20 mt-0">Death Certificate</h4>
+                                              <p class="card-text">Download the pdf file for the death certificate.</p>
+                                              <a href="{% static 'dash/assets/images/pdf/death.pdf'%}" target="_blank" class="btn btn-primary waves-effect waves-light">Download</a>
+                                          </div>
+                                      </div>
+
+                                  </div><!-- end col -->
+                                  <div class="col-md-6 col-lg-6 col-xl-4">
+
+                                      <!-- Simple card -->
+                                      <div class="card m-b-30">
+                                          <img class="card-img-top img-fluid" src="{% static 'dash/assets/images/big/img-R.jpg'%}" style="height:210px;" alt="Card image cap">
+                                          <div class="card-body">
+                                              <h4 class="card-title font-20 mt-0"> Residence Certificate</h4>
+                                              <p class="card-text">Download the pdf file for the Residence certificate.</p>
+                                              <a href="{% static 'dash/assets/images/pdf/reg.pdf'%}" target="_blank" class="btn btn-primary waves-effect waves-light">Download</a>
+                                          </div>
+                                      </div>
+
+                                  </div><!-- end col -->
+
+                                </div>
+
+                          <!-- second Row -->
+                          <div class="row">
+
+                            <div class="col-md-6 col-lg-6 col-xl-4">
+
+                                <!-- Simple card -->
+                                <div class="card m-b-30"style="">
+                                    <img class="card-img-top img-fluid" src="{% static 'dash/assets/images/big/img-3.jpg'%}" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h4 class="card-title font-20 mt-0">Disablity Certificate</h4>
+                                        <p class="card-text">Download the pdf file for the Disability certificate.</p>
+                                        <a href="{% static 'dash/assets/images/pdf/dis.pdf'%}" target="_blank" class="btn btn-primary waves-effect waves-light">Download</a>
+                                    </div>
+                                </div>
+
+                            </div><!-- end col -->
+                            <div class="col-md-6 col-lg-6 col-xl-4">
+
+                                <!-- Simple card -->
+                                <div class="card m-b-30" style="height:350px;">
+                                    <img class="card-img-top img-fluid" src="{% static 'dash/assets/images/big/img-4.jpg'%}" alt="Card image cap" style="height:210px;">
+                                    <div class="card-body">
+                                        <h4 class="card-title font-20 mt-0">Farmer Certificate</h4>
+                                        <p class="card-text">Download the pdf file for the small farmer certificate.</p>
+                                        <a href="{% static 'dash/assets/images/pdf/farmer.pdf'%}" target="_blank" class="btn btn-primary waves-effect waves-light">Download</a>
+                                    </div>
+                                </div>
+
+                            </div><!-- end col -->
+                            <div class="col-md-6 col-lg-6 col-xl-4">
+
+                                <!-- Simple card -->
+                                <div class="card m-b-30">
+                                    <img class="card-img-top img-fluid" src="{% static 'dash/assets/images/big/img-5.jpg'%}" style="height:210px;" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h4 class="card-title font-20 mt-0"> Fisherman Certificate</h4>
+                                        <p class="card-text">Download the pdf file for the Fisherman Insurence certificate.</p>
+                                        <a href="{% static 'dash/assets/images/pdf/fish.pdf'%}" target="_blank" class="btn btn-primary waves-effect waves-light">Download</a>
+                                    </div>
+                                </div>
+
+                            </div><!-- end col -->
+
+                          </div>
+                          <div class="row">
+
+                            <div class="col-md-6 col-lg-6 col-xl-4">
+
+                                <!-- Simple card -->
+                                <div class="card m-b-30">
+                                    <img class="card-img-top img-fluid" src="{% static 'dash/assets/images/big/img-6.jpg'%}" style="height:210px;" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h4 class="card-title font-20 mt-0">Labour Certificate</h4>
+                                        <p class="card-text">Download the pdf file for the Labour Registration Establishment Shop certificate.</p>
+                                        <a href="{% static 'dash/assets/images/pdf/labour.pdf'%}" target="_blank" class="btn btn-primary waves-effect waves-light">Download</a>
+                                    </div>
+                                </div>
+
+                            </div><!-- end col -->
+                            <div class="col-md-6 col-lg-6 col-xl-4">
+
+                                <!-- Simple card -->
+                                <div class="card m-b-30" style="height:350px;">
+                                    <img class="card-img-top img-fluid" src="{% static 'dash/assets/images/big/img-7.jpg'%}" alt="Card image cap" style="height:210px;">
+                                    <div class="card-body">
+                                        <h4 class="card-title font-20 mt-0">Bus pass Certificate</h4>
+                                        <p class="card-text">Download the pdf file for the student bus pass certificate.</p>
+                                        <a href="{% static 'dash/assets/images/pdf/bus.pdf'%}" target="_blank" class="btn btn-primary waves-effect waves-light">Download</a>
+                                    </div>
+                                </div>
+
+                            </div><!-- end col -->
+                            <div class="col-md-6 col-lg-6 col-xl-4">
+
+                                <!-- Simple card -->
+                                <div class="card m-b-30">
+                                    <img class="card-img-top img-fluid" src="{% static 'dash/assets/images/big/img-8.jpg'%}" style="height:210px;" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h4 class="card-title font-20 mt-0">Caste Certificate</h4>
+                                        <p class="card-text">Download the pdf file for the caste certificate.</p>
+                                        <a href="{% static 'dash/assets/images/pdf/cast.pdf'%}" target="_blank" class="btn btn-primary waves-effect waves-light">Download</a>
+                                    </div>
+                                </div>
+
+                            </div><!-- end col -->
+
+                          </div>
+                        </div><!-- container-fluid -->
+
+
+                    </div> <!-- Page content Wrapper -->
+
+                </div> <!-- content -->
+
+                <footer class="footer">
+                     Copyright   &copy; <strong>Government</strong> All Rights Reserved
+                </footer>
+
+            </div>
+            <!-- End Right content here -->
+
+        </div>
+        <!-- END wrapper -->
+
+        {% endblock %}

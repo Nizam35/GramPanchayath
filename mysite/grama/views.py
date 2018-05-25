@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 # from .forms import PostForm
 # from .forms import RegistrationForm
 from django.shortcuts import redirect
-from .models import Post,VDetails
+from .models import Post,VDetails,Feedback
 from django.contrib.auth import authenticate, login
 # from django.urls import reverse_lazy
 from django.core.mail import send_mail
@@ -21,7 +21,9 @@ from .forms import (
     EditProfileForm,
     TenderForm,
     CustomUserCreationForm,
-    BirthCertificateForm
+    BirthCertificateForm,
+    FeedbackForm,
+    DeathCertificateForm
 )
 def home(request):
     posts = Post.objects.all
@@ -30,8 +32,31 @@ def home(request):
 def index(request):
     return render(request,'citizen/index.html',{})
 @login_required
+def download(request):
+    return render(request,'citizen/download.html',{})
+@login_required
+def inbox(request):
+    user=request.user
+    feedback = Feedback.objects.all
+    args = {'user': user,'feedback':feedback}
+     # {{ request.user.username }}
+    # user = user.objects.filter(owner=self.request.user)
+    # users=User.objects.filter(owner=request.user)
+    return render(request,'president/inbox.html',args)
+@login_required
+def pinbox(request):
+    user=request.user
+    return render(request,'president/pinbox.html',{'user': user})
+@login_required
+def mdetails(request):
+    feedback = Feedback.objects.all
+    return render(request, 'president/messagedetails.html',{'feedback': feedback})
+@login_required
 def gindex(request):
     return render(request,'grama/index.html',{})
+@login_required
+def gmaps(request):
+    return render(request,'citizen/maps-google.html',{})
 # def post_forms(request):
 #     return render(request,'grama/forms.html')
 def login(request):
@@ -106,14 +131,15 @@ def view_profile(request, pk=None):
             vdetails=VDetails.objects.all
             args = {'user': user,'posts':posts,'vdetails':vdetails}
             return render(request, 'president/indexp.html', args)
-        elif request.user.username=='vp':
+        elif request.user.username=='vpresident':
             user = request.user
-            args = {'user': user}
-            return render(request, 'vicepresident/indexvp.html', args)
-        elif request.user.username=='va':
-            user = request.user
-            args = {'user': user}
-            return render(request, 'villageaccountant/indexva.html', args)
+            vdetails=VDetails.objects.all
+            args = {'user': user,'vdetails':vdetails}
+            return render(request, 'vicepresident/indexvpr.html', args)
+        # elif request.user.username=='vaccountant':
+        #     user = request.user
+        #     args = {'user': user}
+        #     return render(request, 'villageaccountant/indexva.html', args)
         elif request.user.username=='mem1'or request.user.username=='mem2'or request.user.username=='mem3'or request.user.username=='mem4':
             user = request.user
             args = {'user': user}
@@ -232,3 +258,32 @@ def birth(request):
         f = BirthCertificateForm()
 
     return render(request, 'citizen/bforms.html', {'form': f})
+
+#death BirthCertificate
+@login_required
+def death(request):
+    if request.method == 'POST':
+        f = DeathCertificateForm(request.POST)
+        if f.is_valid():
+            f.save()
+            # messages.success(request, 'Account created successfully')
+            return redirect('/grama/profile')
+
+    else:
+        f = DeathCertificateForm()
+
+    return render(request, 'citizen/dform.html', {'form': f})
+#birth BirthCertificate
+@login_required
+def feedback(request):
+    if request.method == 'POST':
+        f = FeedbackForm(request.POST)
+        if f.is_valid():
+            f.save()
+            # messages.success(request, 'Account created successfully')
+            return redirect('/grama/thanks')
+
+    else:
+        f = FeedbackForm()
+
+    return render(request, 'citizen/complaint.html', {'form': f})
