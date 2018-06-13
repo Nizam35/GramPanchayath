@@ -37,7 +37,7 @@ def download(request):
 @login_required
 def inbox(request):
     user=request.user
-    feedback = Feedback.objects.all
+    feedback = Feedback.objects.all()
     args = {'user': user,'feedback':feedback}
      # {{ request.user.username }}
     # user = user.objects.filter(owner=self.request.user)
@@ -69,7 +69,7 @@ def logout(request):
     return render(request, 'grama/logout.html')
 
 def service(request):
-    return render(request,'grama/service.html')
+    return render(request,'grama/service.html',{})
 
 # def register(request):
 #     if request.method =='POST':

@@ -1,0 +1,159 @@
+{% extends 'base2.html' %}
+
+{% load staticfiles %}
+{% load static %}
+{% block head %}
+  <title>services</title>
+
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+{% endblock %}
+{% block body %}
+<header id="header">
+  <div class="container-fluid">
+
+    <div id="logo" class="pull-left">
+      <h1><a href="/" class="scrollto"><img width="50px" height="50px"src="{% static 'gramaimg/logo.png' %}" alt=""></a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="#intro"><img src="img/logo.png" alt="" title="" /></a>-->
+    </div>
+
+    <nav id="nav-menu-container">
+      <ul class="nav-menu">
+        <li ><a href="/">Home</a></li>
+        <li><a href="/">About Us</a></li>
+
+        <li class="menu-active"><a href="/grama/service">Services</a></li>
+        <!-- <li><a href="#team">Team</a></li> -->
+        <li><a href="/login"><i class="fa fa-sign-in " aria-hidden="true"></i>&nbsp;Login</a></li>
+        <li><a href="/register"><i class="fa fa-user-plus "></i>&nbsp;Sign UP</a></li>
+      </ul>
+    </nav><!-- #nav-menu-container -->
+  </div>
+</header><!-- #header -->
+<div style="height:90px;">
+
+</div>
+    <h1 style=" font-size:30px;color:#fff;padding: 30px;font-weight:bold;text-align:center; background-color:#417690;">Local Rural Services</h1>
+<section style="margin-top:-20px;" id="featured-services">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 box box-bg">
+        <i class="ion-waterdrop"></i>
+        <h4 class="title"><a href="#">Water Supply</a></h4>
+        <p class="description">The steps taken by the  Panchayth to supply piped drinking water to residents in urban areas and conduct a house to house survey in the urban areas of the state and identify families who have no pipe water facility      </div>
+
+
+      <div class="col-lg-4 box">
+        <i class="ion-ios-book"></i>
+        <h4 class="title"><a href="#">Education</a></h4>
+        <p class="description">ensuring universal enrollment of children in primary school,
+achieving universal immunisation of children  </div>
+
+
+
+          <div class="col-lg-4 box">
+            <i class="ion-ios-medkit-outline"></i>
+            <h4 class="title"><a href="#">Health Care</a></h4>
+            <p class="description">Include multi-specialty hospitals, rehab centers, and small medical clinics. They contain a lot of medical equipment and confidential patient data that needs to be managed efficiently.</p>
+          </div>
+
+      <!-- second row -->
+      <div class="col-lg-4 box">
+        <i class="ion-lightbulb"></i>
+        <h4 class="title"><a href="#">Power Supply</a></h4>
+        <p class="description">Providing adequate number of street lights and paying electricity charges regularly;  </div>
+
+      <div class="col-lg-4 box box-bg">
+        <i class="ion-ios-book-outline"></i>
+        <h4 class="title"><a href="#">Census Records</a></h4>
+        <p class="description">Maintenance of records relating to population census, crop census, cattle census, census of unemployed persons and person below poverty line;</div>
+
+      <div class="col-lg-4 box">
+        <i class="ion-ios-flask"></i>
+        <h4 class="title"><a href="#">Fertilizers Supply</a></h4>
+        <p class="description">The steps taken by the  Panchayth to Supply Fertilizes for urban areas farmers  </div>
+
+      <!-- third service -->
+      <div class="col-lg-4 box">
+        <i class="ion-ios-home-outline"></i>
+        <h4 class="title"><a href="#"> Sanitary latrines Funds</a></h4>
+        <p class="description">Providing sanitary latrines to not less than ten percent of the households every year and achieve full coverage as early as possible</div>
+
+
+      <div class="col-lg-4 box">
+        <i class="ion-ios-trash"></i>
+        <h4 class="title"><a href="#"> Drainage Facilities</a></h4>
+        <p class="description">The steps taken by the  Panchayth to Clean the drainage from residents areas     </div>
+          <div class="col-lg-4 box box-bg">
+            <i class="ion-settings"></i>
+            <h4 class="title"><a href="#">Agriculture Equiments Funds</a></h4>
+            <p class="description">For the Farmers the Agriculture Equiments funds are given as Subsidies basis</div>
+
+    </div>
+  </div>
+</section><!-- #featured-services -->
+
+<footer id="footer">
+  <div class="footer-top">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-lg-3 col-md-6 footer-info">
+          <h3>Grama Panchayath</h3>
+          <p>  </div>
+
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><i class="ion-ios-arrow-right"></i> <a href="/">Home</a></li>
+            <li><i class="ion-ios-arrow-right"></i> <a href="/">About us</a></li>
+            <li><i class="ion-ios-arrow-right"></i> <a href="/grama/service">Services</a></li>
+
+
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-contact">
+          <h4>Contact Us</h4>
+          <p>
+            Gram panchayth <br>
+            Innoli,574531<br>
+            Mangalore<br>
+            <strong>Phone:</strong> +1 9108776988<br>
+            <strong>Email:</strong> grama@example.com<br>
+          </p>
+
+          <div class="social-links">
+            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+            <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+            <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+            <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-newsletter">
+          <h4>Our Newsletter</h4>
+          <p> The reintroduction of panchayats for their previously used purpose as an organisation for local self-governance.There are about 250,000 gram panchayats in India,that are being gigabit-broadband enabled under the BharatNet and Digital India initiative.</p>
+          <form  method="post" action="https://formspree.io/anizamuddin35@gmail.com">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="email" name="email"><input type="submit"  value="Subscribe">
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="copyright">
+      Copyright   &copy; <strong>Government</strong> All Rights Reserved
+    </div>
+
+  </div>
+</footer><!-- #footer -->
+
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+{% endblock %}
